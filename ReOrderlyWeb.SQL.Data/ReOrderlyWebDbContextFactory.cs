@@ -8,9 +8,15 @@ public class ReOrderlyWebDbContextFactory : IDesignTimeDbContextFactory<ReOrderl
 {
     public ReOrderlyWebDbContext CreateDbContext(string[] args)
     {
-        // Ustawienie konfiguracji do odczytania connection string
+        // Pobierz aktualny katalog pracy
+        var basePath = Directory.GetCurrentDirectory();
+
+        // Zakładając, że główny projekt jest poziom wyżej w strukturze katalogów
+        var projectPath = Path.Combine(Directory.GetParent(basePath).FullName, "ReOrderlyWeb");
+
+        // Odczyt konfiguracji z pliku appsettings.json z głównego projektu
         IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
+            .SetBasePath(projectPath)  // Zmieniamy katalog na główny projekt
             .AddJsonFile("appsettings.json")
             .Build();
 

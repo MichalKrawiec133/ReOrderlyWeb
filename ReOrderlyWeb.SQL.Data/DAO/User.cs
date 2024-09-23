@@ -4,7 +4,7 @@ namespace ReOrderlyWeb.SQL.Data.DAO;
 
 public class User
 {
-
+    [Key]
     public int userId { get; set; }
     [Required]
     [MaxLength(32)]

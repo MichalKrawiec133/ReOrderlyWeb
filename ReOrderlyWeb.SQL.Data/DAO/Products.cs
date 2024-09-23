@@ -4,6 +4,7 @@ namespace ReOrderlyWeb.SQL.Data.DAO;
 
 public class Products
 {
+    [Key]
     public int productId { get; set; }
     [Required]
     [MaxLength(32)]

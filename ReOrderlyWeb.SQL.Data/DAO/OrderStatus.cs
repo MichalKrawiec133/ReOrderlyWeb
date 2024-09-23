@@ -4,6 +4,7 @@ namespace ReOrderlyWeb.SQL.Data.DAO;
 
 public class OrderStatus
 {
+    [Key]
     public int orderStatusId { get; set; }
     [Required]
     [MaxLength(64)]

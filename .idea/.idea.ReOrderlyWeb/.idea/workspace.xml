@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="dbcontext">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="factory test for migration" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +39,9 @@
   "associatedIndex": 4
 }]]></component>
   <component name="ProjectId" id="2mU12Sn6a4buSi91BO1GWTsXfm5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -117,7 +117,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727116134143</updated>
-      <workItem from="1727116135265" duration="5418000" />
+      <workItem from="1727116135265" duration="5844000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -127,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727120524801</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="factory test for migration">
+      <option name="closed" value="true" />
+      <created>1727121794636</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727121794636</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,10 +143,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Client" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Abstractions" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Relational" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="dbcontext" />
-    <option name="LAST_COMMIT_MESSAGE" value="dbcontext" />
+    <MESSAGE value="factory test for migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="factory test for migration" />
   </component>
 </project>

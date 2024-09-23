@@ -4,6 +4,7 @@ namespace ReOrderlyWeb.SQL.Data.DAO;
 
 public class OrderItems
 {
+    [Key]
     public int orderItemId { get; set; }
     [Required]
     public int idProduct { get; set; }

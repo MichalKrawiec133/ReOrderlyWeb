@@ -9,20 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/WeatherForecastController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/WeatherForecast.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/appsettings.json" afterDir="false" />
+    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="dbcontext">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +23,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "MichalKrawiec133"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MichalKrawiec133/ReOrderlyWeb.git",
+    "accountId": "885c4845-3dc0-4a0d-8d01-4645f5ce475f"
+  }
+}]]></component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 4
@@ -116,16 +117,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727116134143</updated>
-      <workItem from="1727116135265" duration="4252000" />
+      <workItem from="1727116135265" duration="5418000" />
     </task>
+    <task id="LOCAL-00001" summary="dbcontext">
+      <option name="closed" value="true" />
+      <created>1727120524801</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727120524801</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="dbcontext" />
+    <option name="LAST_COMMIT_MESSAGE" value="dbcontext" />
   </component>
 </project>

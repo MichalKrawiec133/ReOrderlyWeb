@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 using ReOrderlyWeb.SQL.Data.DAO;
 
-namespace ReOrderlyWeb.Data.Sql;
+namespace ReOrderlyWeb.SQL.Data;
 
 public class ReOrderlyWebDbContext : DbContext
 {

@@ -11,6 +11,8 @@ public class OrderSubscription
     [Required]
     public int idProduct { get; set; }
     [Required]
+    public int productQuantity { get; set; }
+    [Required]
     public int intervalDays { get; set; }
     [Required]
     public DateOnly orderDate { get; set; }

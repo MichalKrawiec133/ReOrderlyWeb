@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using ReOrderlyWeb.Data.Sql;
+using ReOrderlyWeb.SQL.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 // Add services to the container.
-
+//builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 builder.Services.AddDbContext<ReOrderlyWebDbContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("DbContext")??""));
+    options.UseMySQL(configuration.GetConnectionString("ReOrderlyWebDbContext")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

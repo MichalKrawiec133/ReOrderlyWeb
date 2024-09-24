@@ -11,7 +11,7 @@ public class Order
     [Required]
     public int orderStatus { get; set; }
     [Required]
-    public DateOnly orderDate { get; set; }
+    public DateTime orderDate { get; set; }
 
     public virtual ICollection<User> Users { get; set; } = new List<User>();
     public virtual ICollection<OrderStatus> OrderStatuss { get; set; } = new List<OrderStatus>();

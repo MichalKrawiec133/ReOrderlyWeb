@@ -9,7 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="po zmianach, dalsze proby migracji" />
+    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderSubscription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderSubscription.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/20240923201138_InitialMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/20240923201138_InitialMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/ReOrderlyWebDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWeb.SQL.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWeb.SQL.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContextFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/appsettings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,23 +36,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MichalKrawiec133"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MichalKrawiec133&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MichalKrawiec133/ReOrderlyWeb.git",
-    "accountId": "885c4845-3dc0-4a0d-8d01-4645f5ce475f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MichalKrawiec133/ReOrderlyWeb.git&quot;,
+    &quot;accountId&quot;: &quot;885c4845-3dc0-4a0d-8d01-4645f5ce475f&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/25a8295191464bdf6f91ab7d2df7d725a4c28e67f61c24b6ef4c278d9d2dcc/MD5Digest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5553559cdb4b5664893497ec3d7831e41e3f7cff9dd2ef3258115769f70aa/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8c1c57742337e59591581af3eb2c647e9ed52d2951655fd74b1facf3ff520/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce7580e8e0f6a2637f8ec8ab41c5fd2f845ad94ea18c76d554db62248d8954/HashAlgorithm.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3e11c961d12b2fefb2e241260357683bec19a3e8943c3398e4e4e57515e3140/DateOnly.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2mU12Sn6a4buSi91BO1GWTsXfm5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -46,22 +68,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.ReOrderlyWeb: https.executor": "Run",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.ReOrderlyWeb: https.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ReOrderlyWeb: https">
     <configuration name="ReOrderlyWeb: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" />
@@ -117,7 +139,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727116134143</updated>
-      <workItem from="1727116135265" duration="6172000" />
+      <workItem from="1727116135265" duration="10343000" />
+      <workItem from="1727200040567" duration="5609000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -143,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727122283296</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="udana migracja :)">
+      <option name="closed" value="true" />
+      <created>1727122449138</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727122449138</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +194,7 @@
     <MESSAGE value="dbcontext" />
     <MESSAGE value="factory test for migration" />
     <MESSAGE value="po zmianach, dalsze proby migracji" />
-    <option name="LAST_COMMIT_MESSAGE" value="po zmianach, dalsze proby migracji" />
+    <MESSAGE value="udana migracja :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="udana migracja :)" />
   </component>
 </project>

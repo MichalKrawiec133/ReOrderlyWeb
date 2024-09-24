@@ -157,6 +157,7 @@ public class DatabaseSeed
         {
             orderStatusId = 1,
             orderStatusDescription = "Opłacone"
+           
         };
         orderStatuslist.Add(orderStatus);
         
@@ -170,16 +171,10 @@ public class DatabaseSeed
         orderStatus = new OrderStatus()
         {
             orderStatusId = 3,
-            orderStatusDescription = "Przekazane do doręczenia"
+            orderStatusDescription = "Przekazane do doręczenia",
         };
         orderStatuslist.Add(orderStatus);
         
-        orderStatus = new OrderStatus()
-        {
-            orderStatusId = 4,
-            orderStatusDescription = "Doręczone"
-        };
-        orderStatuslist.Add(orderStatus);
         return orderStatuslist;
     }
 
@@ -191,7 +186,7 @@ public class DatabaseSeed
         {
             orderId = 1,
             idUser = 1,
-            orderStatus = 1,
+            idOrderStatus = 1,
             orderDate = localDate,
         };
         orderList.Add(orders);
@@ -202,7 +197,7 @@ public class DatabaseSeed
         {
             orderId = 2,
             idUser = 2,
-            orderStatus = 2,
+            idOrderStatus = 2,
             orderDate = localDate,
         };
         orderList.Add(orders);
@@ -213,7 +208,7 @@ public class DatabaseSeed
         {
             orderId = 3,
             idUser = 3,
-            orderStatus = 3,
+            idOrderStatus = 3,
             orderDate = localDate,
         };
         orderList.Add(orders);

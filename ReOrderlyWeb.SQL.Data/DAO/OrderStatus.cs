@@ -9,4 +9,6 @@ public class OrderStatus
     [Required]
     [MaxLength(64)]
     public string orderStatusDescription { get; set; }
+
+    
 }

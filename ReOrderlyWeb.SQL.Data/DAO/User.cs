@@ -29,6 +29,8 @@ public class User
     [Required]
     public int phoneNumber { get; set; }
     
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    
     
   
 }

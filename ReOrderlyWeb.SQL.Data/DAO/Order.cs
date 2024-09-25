@@ -8,12 +8,15 @@ public class Order
     public int orderId { get; set; }
     [Required]
     public int idUser { get; set; }
+    public virtual User User { get; set; }
+    
     [Required]
     public int idOrderStatus { get; set; }
+    
+    public virtual OrderStatus OrderStatus { get; set; }
     [Required]
     public DateTime orderDate { get; set; }
-
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
-    public virtual ICollection<OrderStatus> OrderStatuss { get; set; } = new List<OrderStatus>();//cos jest z kluczami nie tak... oraz nie dodają się pierwsze dwa ordery w bazie
+    
+    //cos jest z kluczami nie tak... oraz nie dodają się pierwsze dwa ordery w bazie
 
 }

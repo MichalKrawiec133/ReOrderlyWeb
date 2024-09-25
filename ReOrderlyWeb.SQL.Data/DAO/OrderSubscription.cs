@@ -8,8 +8,13 @@ public class OrderSubscription
     public int orderSubscriptionId { get; set; }
     [Required]
     public int idUser { get; set; }
+    public virtual User User { get; set; }
+    
     [Required]
     public int idProduct { get; set; }
+    
+    public virtual Products Products { get; set; }
+    
     [Required]
     public int productQuantity { get; set; }
     [Required]
@@ -17,7 +22,4 @@ public class OrderSubscription
     [Required]
     public DateOnly orderDate { get; set; }
     
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
-    
-    public virtual ICollection<Products> Productss { get; set; } = new List<Products>();
 }

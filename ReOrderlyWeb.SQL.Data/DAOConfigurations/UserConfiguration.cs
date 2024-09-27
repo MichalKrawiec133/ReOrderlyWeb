@@ -22,9 +22,11 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.phoneNumber).IsRequired();
 
         
+        /*
         builder.HasMany(u => u.Orders)
             .WithOne(o => o.User)
             .HasForeignKey(o => o.idUser);
+            */
 
         builder.ToTable("User");
     }

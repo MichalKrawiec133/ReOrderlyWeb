@@ -10,6 +10,7 @@ public class OrderSubscriptionConfiguration : IEntityTypeConfiguration<OrderSubs
     {
         builder.HasKey(os => os.orderSubscriptionId);
         
+        /*
         builder.HasOne(os => os.User)
             .WithMany()                   
             .HasForeignKey(os => os.idUser)
@@ -19,8 +20,11 @@ public class OrderSubscriptionConfiguration : IEntityTypeConfiguration<OrderSubs
             .WithMany()                     
             .HasForeignKey(os => os.idProduct)
             .IsRequired();
+            */
 
         
+        builder.Property(os => os.idUser).IsRequired();
+        builder.Property(os => os.idProduct).IsRequired();
         builder.Property(os => os.productQuantity).IsRequired();
         builder.Property(os => os.intervalDays).IsRequired();
         builder.Property(os => os.orderDate).IsRequired();

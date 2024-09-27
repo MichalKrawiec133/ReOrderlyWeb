@@ -1,4 +1,5 @@
 using System.Configuration;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -20,6 +21,24 @@ builder.Services.AddControllers().AddNewtonsoftJson(options => {
     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 });
+builder.Services.AddAuthentication(options => 
+{
+    options.DefaultScheme = "Cookies";
+}).AddCookie("Cookies", options =>
+{
+    options.Cookie.Name = "auth_cookie";
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Events = new CookieAuthenticationEvents
+    {
+        OnRedirectToLogin = redirectContext =>
+        {
+            redirectContext.HttpContext.Response.StatusCode = 401;
+            return Task.CompletedTask;
+        }
+    };
+});
+
+builder.Services.AddCors();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -52,7 +71,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(policy =>
+{
+    policy.AllowAnyHeader();
+    policy.AllowCredentials();
+    policy.AllowAnyMethod();
+    policy.WithOrigins("http://localhost:4200");
+
+});
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

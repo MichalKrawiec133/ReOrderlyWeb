@@ -10,5 +10,5 @@ public class OrderStatus
     [MaxLength(64)]
     public string orderStatusDescription { get; set; }
 
-    public ICollection<Order> Orders { get; set; } // Navigation property
+    public ICollection<Order> Orders { get; set; } 
 }

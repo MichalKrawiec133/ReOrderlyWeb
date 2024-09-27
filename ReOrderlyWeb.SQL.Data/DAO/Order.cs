@@ -8,12 +8,12 @@ public class Order
     public int orderId { get; set; }
     [Required]
     public int idUser { get; set; }
-    public virtual User User { get; set; }
+    // public virtual User User { get; set; }
     
     [Required]
     public int idOrderStatus { get; set; }
     
-    public virtual OrderStatus OrderStatus { get; set; }
+   // public OrderStatus OrderStatus { get; set; }
     [Required]
     public DateTime orderDate { get; set; }
     

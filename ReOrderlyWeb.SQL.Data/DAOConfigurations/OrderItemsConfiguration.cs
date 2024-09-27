@@ -11,6 +11,7 @@ public class OrderItemsConfiguration : IEntityTypeConfiguration<OrderItems>
         builder.HasKey(oi => oi.orderItemId);
 
         
+        /*
         builder.HasOne(oi => oi.Order)
             .WithMany()    
             .HasForeignKey(oi => oi.idOrder)
@@ -20,8 +21,11 @@ public class OrderItemsConfiguration : IEntityTypeConfiguration<OrderItems>
             .WithMany()                     
             .HasForeignKey(oi => oi.idProduct)
             .IsRequired();
+            */
 
         
+        builder.Property(oi => oi.idProduct).IsRequired();
+        builder.Property(oi => oi.idOrder).IsRequired();
         builder.Property(oi => oi.orderItemQuantity).IsRequired();
         builder.Property(oi => oi.orderPrice).IsRequired();
 

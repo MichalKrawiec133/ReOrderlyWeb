@@ -10,16 +10,12 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
         builder.HasKey(o => o.orderId);
         
-        builder.HasOne(o => o.User)
+        /*builder.HasOne(o => o.User)
             .WithMany(u => u.Orders)     
             .HasForeignKey(o => o.idUser)
-            .IsRequired();
-
-        builder.HasOne(o => o.OrderStatus)
-            .WithMany(s => s.Orders)                   
-            .HasForeignKey(o => o.idOrderStatus)
-            .IsRequired();
-        
+            .IsRequired();*/
+        builder.Property(o => o.idUser).IsRequired();
+        builder.Property(o => o.idOrderStatus).IsRequired();
         builder.Property(o => o.orderDate).IsRequired();
         builder.ToTable("Order");
     }

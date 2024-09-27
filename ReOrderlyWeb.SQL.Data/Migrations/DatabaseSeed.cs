@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using Org.BouncyCastle.Crypto.Digests;
+using Microsoft.EntityFrameworkCore;
 
 namespace ReOrderlyWeb.SQL.Data.Migrations;
 
@@ -151,7 +152,7 @@ public class DatabaseSeed
 
     private IEnumerable<OrderStatus> BuildOrderStatusList()
     {
-        var orderStatuslist = new List<OrderStatus>();
+        var orderStatusList = new List<OrderStatus>();
         
         var orderStatus = new OrderStatus()
         {
@@ -159,23 +160,26 @@ public class DatabaseSeed
             orderStatusDescription = "Opłacone"
            
         };
-        orderStatuslist.Add(orderStatus);
+        orderStatusList.Add(orderStatus);
         
         orderStatus = new OrderStatus()
         {
             orderStatusId = 2,
             orderStatusDescription = "W trakcie przygotowania"
         };
-        orderStatuslist.Add(orderStatus);
+        orderStatusList.Add(orderStatus);
         
         orderStatus = new OrderStatus()
         {
             orderStatusId = 3,
             orderStatusDescription = "Przekazane do doręczenia",
         };
-        orderStatuslist.Add(orderStatus);
-        
-        return orderStatuslist;
+        orderStatusList.Add(orderStatus);
+        /*foreach (var status in orderStatusList)
+        {
+            Console.WriteLine($"ID: {status.orderStatusId}, Description: {status.orderStatusDescription}");
+        }*/
+        return orderStatusList;
     }
 
     private IEnumerable<Order> BuildOrderList()
@@ -192,7 +196,6 @@ public class DatabaseSeed
         orderList.Add(orders);
         
         localDate = DateTime.Now;
-        orderList = new List<Order>();
         orders = new Order()
         {
             orderId = 2,
@@ -203,7 +206,6 @@ public class DatabaseSeed
         orderList.Add(orders);
         
         localDate = DateTime.Now;
-        orderList = new List<Order>();
         orders = new Order()
         {
             orderId = 3,
@@ -298,7 +300,7 @@ public class DatabaseSeed
             byte[] inputBytes = Encoding.UTF8.GetBytes(pass); 
             byte[] hashBytes = md5.ComputeHash(inputBytes); 
             string converted = BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); 
-            Console.WriteLine(converted); 
+            //Console.WriteLine(converted); 
             return converted; 
         }
     }

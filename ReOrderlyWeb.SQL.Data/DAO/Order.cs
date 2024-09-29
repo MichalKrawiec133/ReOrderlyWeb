@@ -13,7 +13,9 @@ public class Order
     [Required]
     public int idOrderStatus { get; set; }
     
-   // public OrderStatus OrderStatus { get; set; }
+    //public virtual OrderStatus OrderStatus { get; set; }
+    
+    public virtual ICollection<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
     [Required]
     public DateTime orderDate { get; set; }
     

@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReOrderlyWeb.SQL.Data;
 using ReOrderlyWeb.SQL.Data.DAO;
@@ -14,10 +16,10 @@ public class UserAccountController : ControllerBase
         _context = context;
     }
     
-    //  TODO usuwanie konta 
+    
     //tworzenie konta.
 
-    [HttpPost("createAccount")]
+    [HttpPost("account")]
     public async Task<IActionResult> CreateUser([FromBody] UserViewModel userCreate)
     {
         
@@ -95,6 +97,7 @@ public class UserAccountController : ControllerBase
     
     //edycja danych usera.
     [HttpPatch("account")]
+    [Authorize]
     public async Task<IActionResult> EditUserData([FromBody] UserViewModel userUpdated)
     {
        
@@ -163,6 +166,29 @@ public class UserAccountController : ControllerBase
     }
         
     
-    
+    // usuwanie konta
+    [HttpDelete("account")]
+    [Authorize]
+    public async Task<IActionResult> DeleteAccount()
+    {
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+        if (string.IsNullOrEmpty(email))
+        {
+            return Unauthorized("No valid user session.");
+        }
+
+        var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+        
+        _context.User.Remove(user);
+        await _context.SaveChangesAsync();
+
+        return Ok(new { message = "Account deleted successfully." });
+    }
     
 }

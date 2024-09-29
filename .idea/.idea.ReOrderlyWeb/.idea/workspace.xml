@@ -10,30 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/LoginController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/UserAccountController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/md5Convert.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/LoginViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderStatusViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/ProductsViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/UserViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderItemsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Order.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderItems.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderSubscription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderSubscription.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/OrderConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/OrderConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Products.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Products.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/OrderItemsConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/OrderItemsConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/OrderSubscriptionConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/OrderSubscriptionConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/UserConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/UserAccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/UserAccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/WeatherForecastController.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/WeatherForecast.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +149,10 @@
       <workItem from="1727376585114" duration="6233000" />
       <workItem from="1727461336556" duration="598000" />
       <workItem from="1727461952399" duration="197000" />
-      <workItem from="1727463106599" duration="7514000" />
+      <workItem from="1727463106599" duration="7740000" />
+      <workItem from="1727544065883" duration="7132000" />
+      <workItem from="1727557185595" duration="378000" />
+      <workItem from="1727621417139" duration="1787000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -215,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727296001512</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="zmiany w kontrolerze logowania,dodawanie, edytowanie i pobranie subskrypcji w kontrolerze subskrypcji,  &#10;edycja i dodanie konta.">
+      <option name="closed" value="true" />
+      <created>1727472198535</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727472198535</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +242,7 @@
     <MESSAGE value="jednak migracje nie działają z powodu bazy w mysql. Database seed dodany, przed testem kodu." />
     <MESSAGE value="działa tworzenie bazy danych, chociaz nie za dobrze. poprawic klucze obce bo z niewiadomych przyczyn dodają się kolumny z id w bazie." />
     <MESSAGE value="dodane configuratory. nie działa insert do orderow przez złamanie więzów spójności lub coś w tym stylu. sprawdzić konfigurator order status oraz order." />
-    <option name="LAST_COMMIT_MESSAGE" value="dodane configuratory. nie działa insert do orderow przez złamanie więzów spójności lub coś w tym stylu. sprawdzić konfigurator order status oraz order." />
+    <MESSAGE value="zmiany w kontrolerze logowania,dodawanie, edytowanie i pobranie subskrypcji w kontrolerze subskrypcji,  &#10;edycja i dodanie konta." />
+    <option name="LAST_COMMIT_MESSAGE" value="zmiany w kontrolerze logowania,dodawanie, edytowanie i pobranie subskrypcji w kontrolerze subskrypcji,  &#10;edycja i dodanie konta." />
   </component>
 </project>

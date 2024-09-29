@@ -1,6 +1,0 @@
-@ReOrderlyWeb_HostAddress = http://localhost:5120
-
-GET {{ReOrderlyWeb_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

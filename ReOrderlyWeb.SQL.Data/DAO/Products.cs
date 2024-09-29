@@ -14,4 +14,5 @@ public class Products
     [Required]
     public int productQuantity { get; set; }
 
+    public virtual ICollection<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
 }

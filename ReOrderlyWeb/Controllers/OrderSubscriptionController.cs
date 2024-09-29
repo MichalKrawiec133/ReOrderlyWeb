@@ -17,8 +17,6 @@ namespace ReOrderlyWeb.Controllers
         {
             _context = context;
         }
-
-        // TODO DODANIE ANULOWANIA SUBSKRYPCJI
         
         //wyswietlenie wszystkich subskrypcji
         [HttpGet("subscriptions")]
@@ -98,7 +96,7 @@ namespace ReOrderlyWeb.Controllers
         }
         
         //edycja aktualnych subskrypcji
-        [HttpPatch("subscribtions")]
+        [HttpPatch("subscriptions")]
         public async Task<IActionResult> PatchSubscription([FromBody] OrderSubscriptionViewModel subscriptionViewModel)
         {
             var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
@@ -134,6 +132,43 @@ namespace ReOrderlyWeb.Controllers
 
             return Ok(new { message = "Subscription updated successfully." });
         }
+        
+        
+        //anulowanie subskrypcji 
+        
+       
+        [HttpDelete("subscriptions/{subscriptionId}")]
+        [Authorize]
+        public async Task<IActionResult> CancelSubscription(int subscriptionId)
+        {
+            var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("No valid user session.");
+            }
+
+            var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+
+            if (user == null)
+            {
+                return Unauthorized("User not found.");
+            }
+            
+            var subscription = _context.OrderSubscription
+                .SingleOrDefault(o => o.orderSubscriptionId == subscriptionId && o.idUser == user.userId);
+
+            if (subscription == null)
+            {
+                return NotFound("Subscription not found.");
+            }
+            
+            _context.OrderSubscription.Remove(subscription);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Subscription cancelled successfully." });
+        }
+
         
         
     }

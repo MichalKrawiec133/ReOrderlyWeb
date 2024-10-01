@@ -40,14 +40,24 @@ public class OrderController : ControllerBase
             {
                 orderId = o.orderId,
                 idUser = o.idUser,
-                idOrderStatus = o.idOrderStatus,
+                OrderStatus = new OrderStatusViewModel 
+                {
+                    orderStatusId = o.OrderStatus.orderStatusId,
+                    orderStatusDescription = o.OrderStatus.orderStatusDescription
+                },
                 orderDate = o.orderDate,
                 orderItems = _context.OrderItems
                     .Where(oi => oi.idOrder == o.orderId)
                     .Select(oi => new OrderItemsViewModel
                     {
                         orderItemId = oi.orderItemId,
-                        idProduct = oi.idProduct,
+                        Products = new ProductsViewModel  
+                        {
+                            productId = oi.Products.productId,
+                            productName = oi.Products.productName,
+                            productPrice = oi.Products.productPrice,
+                            productQuantity = oi.Products.productQuantity
+                        },
                         idOrder = oi.idOrder,
                         orderItemQuantity = oi.orderItemQuantity,
                         orderPrice = oi.orderPrice
@@ -60,36 +70,62 @@ public class OrderController : ControllerBase
     }
 
 
+
     // dodaj nowe zamowienie
     [HttpPost("checkout")]
     public async Task<IActionResult> CreateOrder([FromBody] OrderViewModel orderViewModel)
     {
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+        if (string.IsNullOrEmpty(email))
+        {
+            return Unauthorized("No valid user session.");
+        }
+
+        var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        if (orderViewModel == null)
+        {
+            return BadRequest("Order data is null.");
+        }
+
+        if (orderViewModel.orderItems == null || !orderViewModel.orderItems.Any())
+        {
+            return BadRequest("Order items are missing.");
+        }
+
         var order = new Order
         {
-            idUser = orderViewModel.idUser,
-            idOrderStatus = orderViewModel.idOrderStatus,
+            idUser = user.userId,
+            idOrderStatus = orderViewModel.idOrderStatus,  
             orderDate = orderViewModel.orderDate
         };
-
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
-
+        
         foreach (var item in orderViewModel.orderItems)
         {
             var orderItem = new OrderItems
             {
-                idOrder = order.orderId,
                 idProduct = item.idProduct,
                 orderItemQuantity = item.orderItemQuantity,
                 orderPrice = item.orderPrice
             };
-            _context.OrderItems.Add(orderItem);
+
+            order.OrderItems.Add(orderItem); // Dodano do kolekcji
         }
 
+        _context.Order.Add(order);
         await _context.SaveChangesAsync();
 
         return Ok(new { message = "Order and items created successfully", orderId = order.orderId });
     }
+
+
+
 
 }
 

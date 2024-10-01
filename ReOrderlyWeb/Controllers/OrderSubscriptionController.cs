@@ -45,7 +45,18 @@ namespace ReOrderlyWeb.Controllers
                 {
                     orderSubscriptionId = o.orderSubscriptionId,
                     idUser = o.idUser,
-                    idProduct = o.idProduct,
+                    User = new UserViewModel  // Możesz tutaj dodać, jeśli nawigujesz do User
+                    {
+                        userId = o.User.userId,
+                        lastName = o.User.lastName,
+                        emailAddress = o.User.emailAddress
+                    },
+                    Products = new ProductsViewModel 
+                    {
+                        productId = o.Products.productId,
+                        productName = o.Products.productName,
+                        productPrice = o.Products.productPrice
+                    },
                     productQuantity = o.productQuantity,
                     intervalDays = o.intervalDays,
                     orderDate = o.orderDate
@@ -82,7 +93,11 @@ namespace ReOrderlyWeb.Controllers
             var newSubscription = new OrderSubscription
             {
                 idUser = user.userId,
-                idProduct = subscriptionViewModel.idProduct,
+                Products = new Products
+                {
+                    productName = subscriptionViewModel.Products.productName,
+                    productPrice = subscriptionViewModel.Products.productPrice
+                },
                 productQuantity = subscriptionViewModel.productQuantity,
                 intervalDays = subscriptionViewModel.intervalDays,
                 orderDate = subscriptionViewModel.orderDate
@@ -120,7 +135,11 @@ namespace ReOrderlyWeb.Controllers
             {
                 orderSubscriptionId = subscriptionViewModel.orderSubscriptionId,
                 idUser = user.userId,
-                idProduct = subscriptionViewModel.idProduct,
+                Products = new Products
+                {
+                    productName = subscriptionViewModel.Products.productName,
+                    productPrice = subscriptionViewModel.Products.productPrice
+                },
                 productQuantity = subscriptionViewModel.productQuantity,
                 intervalDays = subscriptionViewModel.intervalDays,
                 orderDate = subscriptionViewModel.orderDate

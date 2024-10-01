@@ -8,8 +8,8 @@ public class OrderItems
     public int orderItemId { get; set; }
     [Required]
     public int idProduct { get; set; }
-    //public virtual Products Products { get; set; }  
-    public virtual Products Product { get; set; }
+    
+    public virtual Products Products { get; set; }
     [Required]
     public int idOrder { get; set; }
     public virtual Order Order { get; set; }  

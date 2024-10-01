@@ -15,7 +15,9 @@ var configuration = builder.Configuration;
 //builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 var connectionString = builder.Configuration.GetConnectionString("ReOrderlyWebDbContext");
 builder.Services.AddDbContext<ReOrderlyWebDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)).LogTo(Console.WriteLine, LogLevel.Information));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+        //.LogTo(Console.WriteLine, LogLevel.Information)
+    );
 builder.Services.AddTransient<DatabaseSeed>();
 builder.Services.AddControllers().AddNewtonsoftJson(options => {
     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

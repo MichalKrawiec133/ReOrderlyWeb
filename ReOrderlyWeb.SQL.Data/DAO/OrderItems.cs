@@ -16,7 +16,7 @@ public class OrderItems
     [Required]
     public int orderItemQuantity { get; set; }
     [Required]
-    public int orderPrice { get; set; }
+    public double orderPrice { get; set; }
     
     
 }

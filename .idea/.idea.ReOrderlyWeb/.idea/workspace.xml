@@ -10,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/ProductController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Services/SubscriptionOrderService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +144,9 @@
       <workItem from="1727544065883" duration="7132000" />
       <workItem from="1727557185595" duration="378000" />
       <workItem from="1727621417139" duration="1829000" />
-      <workItem from="1727644306381" duration="730000" />
+      <workItem from="1727644306381" duration="783000" />
+      <workItem from="1727800521865" duration="6510000" />
+      <workItem from="1727889030991" duration="3154000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -213,7 +220,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727623241266</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="BARDZO WAZNE, TRZEBA DODAC W DBCONTEXT ZASTOSOWANIE KONFIGURACJI :)))) i nagle wszystkie klucze działają">
+      <option name="closed" value="true" />
+      <created>1727645073485</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727645073486</updated>
+    </task>
+    <task id="LOCAL-00011" summary="dodano duzo zmian do order subscription, orderitems, do ich dao, kontrolerow itd">
+      <option name="closed" value="true" />
+      <created>1727806942077</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727806942077</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +262,8 @@
     <MESSAGE value="dodane configuratory. nie działa insert do orderow przez złamanie więzów spójności lub coś w tym stylu. sprawdzić konfigurator order status oraz order." />
     <MESSAGE value="zmiany w kontrolerze logowania,dodawanie, edytowanie i pobranie subskrypcji w kontrolerze subskrypcji,  &#10;edycja i dodanie konta." />
     <MESSAGE value="dodane kilka rzeczy do kontrolerow, dalej problem z relacjami i nawigacją..." />
-    <option name="LAST_COMMIT_MESSAGE" value="dodane kilka rzeczy do kontrolerow, dalej problem z relacjami i nawigacją..." />
+    <MESSAGE value="BARDZO WAZNE, TRZEBA DODAC W DBCONTEXT ZASTOSOWANIE KONFIGURACJI :)))) i nagle wszystkie klucze działają" />
+    <MESSAGE value="dodano duzo zmian do order subscription, orderitems, do ich dao, kontrolerow itd" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodano duzo zmian do order subscription, orderitems, do ich dao, kontrolerow itd" />
   </component>
 </project>

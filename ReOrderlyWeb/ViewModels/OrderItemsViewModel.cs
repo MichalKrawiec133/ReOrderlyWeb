@@ -14,5 +14,5 @@ public class OrderItemsViewModel
     //public virtual Order Order { get; set; }  
 
     public int orderItemQuantity { get; set; }
-    public int orderPrice { get; set; }
+    public double orderPrice { get; set; }
 }

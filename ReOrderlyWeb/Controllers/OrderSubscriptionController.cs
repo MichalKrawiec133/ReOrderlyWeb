@@ -45,7 +45,7 @@ namespace ReOrderlyWeb.Controllers
                 {
                     orderSubscriptionId = o.orderSubscriptionId,
                     idUser = o.idUser,
-                    User = new UserViewModel  // Możesz tutaj dodać, jeśli nawigujesz do User
+                    User = new UserViewModel  
                     {
                         userId = o.User.userId,
                         lastName = o.User.lastName,

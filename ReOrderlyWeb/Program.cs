@@ -1,6 +1,9 @@
 using System.Configuration;
+using System.Text;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using ReOrderlyWeb.SQL.Data;
@@ -28,6 +31,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(options => {
 builder.Services.AddAuthentication(options => 
 {
     options.DefaultScheme = "Cookies";
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddCookie("Cookies", options =>
 {
     options.Cookie.Name = "auth_cookie";
@@ -40,7 +45,21 @@ builder.Services.AddAuthentication(options =>
             return Task.CompletedTask;
         }
     };
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "API", 
+        ValidAudience = "USER", 
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KLUCZDOTESTOWTESTTESTTESTTESTTESTTEST")) // DO ZMIANY PRZY PUBLIKOWANIU
+    };
 });
+    
+    ;
 
 builder.Services.AddCors();
 

@@ -10,13 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/ProductController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReOrderlyWeb/Services/SubscriptionOrderService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/OrderItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/LoginController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderItemsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +144,7 @@
       <workItem from="1727644306381" duration="783000" />
       <workItem from="1727800521865" duration="6510000" />
       <workItem from="1727889030991" duration="3154000" />
+      <workItem from="1729093536538" duration="8138000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />

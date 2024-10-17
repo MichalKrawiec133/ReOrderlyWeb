@@ -16,7 +16,7 @@ public class UserAccountController : ControllerBase
         _context = context;
     }
     
-    
+    //XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.  
     //tworzenie konta.
 
     [HttpPost("account")]

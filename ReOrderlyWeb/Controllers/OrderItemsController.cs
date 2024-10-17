@@ -16,7 +16,7 @@ public class OrderItemsController : ControllerBase
     {
         _context = context;
     }
-
+//XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
     // Get all order items for a specific order
     [HttpGet("{orderId}")]
     [Authorize]

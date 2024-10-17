@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/LoginController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ReOrderlyWeb.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +39,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8c1c57742337e59591581af3eb2c647e9ed52d2951655fd74b1facf3ff520/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce7580e8e0f6a2637f8ec8ab41c5fd2f845ad94ea18c76d554db62248d8954/HashAlgorithm.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3e11c961d12b2fefb2e241260357683bec19a3e8943c3398e4e4e57515e3140/DateOnly.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -144,7 +141,7 @@
       <workItem from="1727644306381" duration="783000" />
       <workItem from="1727800521865" duration="6510000" />
       <workItem from="1727889030991" duration="3154000" />
-      <workItem from="1729093536538" duration="8138000" />
+      <workItem from="1729093536538" duration="8210000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -234,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727806942077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="dodany token logowania jwt, dwa nugety do tokenu jwt">
+      <option name="closed" value="true" />
+      <created>1729103791422</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729103791422</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +267,7 @@
     <MESSAGE value="dodane kilka rzeczy do kontrolerow, dalej problem z relacjami i nawigacją..." />
     <MESSAGE value="BARDZO WAZNE, TRZEBA DODAC W DBCONTEXT ZASTOSOWANIE KONFIGURACJI :)))) i nagle wszystkie klucze działają" />
     <MESSAGE value="dodano duzo zmian do order subscription, orderitems, do ich dao, kontrolerow itd" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodano duzo zmian do order subscription, orderitems, do ich dao, kontrolerow itd" />
+    <MESSAGE value="dodany token logowania jwt, dwa nugety do tokenu jwt" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodany token logowania jwt, dwa nugety do tokenu jwt" />
   </component>
 </project>

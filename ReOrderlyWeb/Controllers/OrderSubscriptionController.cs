@@ -12,7 +12,7 @@ namespace ReOrderlyWeb.Controllers
     public class OrderSubscriptionController : ControllerBase
     {
         private readonly ReOrderlyWebDbContext _context;
-
+//XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
         public OrderSubscriptionController(ReOrderlyWebDbContext context)
         {
             _context = context;

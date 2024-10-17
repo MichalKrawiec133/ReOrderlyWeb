@@ -16,13 +16,17 @@ public class OrderController : ControllerBase
     {
         _context = context;
     }
-
+//XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
     // pobranie wszystkich zamowien
     [HttpGet("orders")]
     [Authorize]
     public IActionResult GetOrders()
     {
+        Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
+
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
+        
         if (string.IsNullOrEmpty(email))
         {
             return Unauthorized("No valid user session.");

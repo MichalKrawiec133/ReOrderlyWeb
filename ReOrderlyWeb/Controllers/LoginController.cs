@@ -21,7 +21,7 @@ public class LoginController : ControllerBase
     }   
     
     
-    
+    //XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
     //logowanie do konta.
     [HttpPost("login")]
     public async Task<IActionResult> Post([FromBody] LoginViewModel login)
@@ -29,7 +29,7 @@ public class LoginController : ControllerBase
         var user = _context.User.SingleOrDefault(c => c.emailAddress == login.emailAddress);
 
         var md5pass = md5Convert.md5gen(login.password);
-        //Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + login.emailAddress + login.password, md5pass);
+        Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + login.emailAddress + login.password, md5pass);
         if (user == null || user.password != md5pass)
         {
                 

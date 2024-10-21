@@ -7,6 +7,9 @@ using ReOrderlyWeb.ViewModels;
 
 namespace ReOrderlyWeb.Controllers;
 
+
+[Authorize]
+[ApiController]
 public class UserAccountController : ControllerBase
 {
     private readonly ReOrderlyWebDbContext _context;
@@ -16,9 +19,41 @@ public class UserAccountController : ControllerBase
         _context = context;
     }
     
-    //XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.  
     //tworzenie konta.
 
+    [HttpGet("account")]
+    public IActionResult GetUserData()
+    {
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+        if (string.IsNullOrEmpty(email))
+        {
+            return Unauthorized("No valid user session.");
+        }
+
+        var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+    
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        var userData = new
+        {
+            user.name,
+            user.lastName,
+            user.streetName,
+            user.houseNumber,
+            user.voivodeship,
+            user.country,
+            user.zipcode,
+            user.phoneNumber
+        };
+
+        return Ok(userData);
+    }
+    
+    
     [HttpPost("account")]
     public async Task<IActionResult> CreateUser([FromBody] UserViewModel userCreate)
     {
@@ -97,7 +132,6 @@ public class UserAccountController : ControllerBase
     
     //edycja danych usera.
     [HttpPatch("account")]
-    [Authorize]
     public async Task<IActionResult> EditUserData([FromBody] UserViewModel userUpdated)
     {
        
@@ -168,7 +202,7 @@ public class UserAccountController : ControllerBase
     
     // usuwanie konta
     [HttpDelete("account")]
-    [Authorize]
+    
     public async Task<IActionResult> DeleteAccount()
     {
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
@@ -190,5 +224,44 @@ public class UserAccountController : ControllerBase
 
         return Ok(new { message = "Account deleted successfully." });
     }
+    
+    
+    [HttpPatch("account/changePassword")]
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordViewModel model)
+    {
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+        if (string.IsNullOrEmpty(email))
+        {
+            return Unauthorized("No valid user session.");
+        }
+       
+        var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+        
+        var oldPasswordHash = md5Convert.md5gen(model.OldPassword);
+        if (user.password != oldPasswordHash)
+        {
+            return BadRequest("Old password is incorrect.");
+        }
+
+        
+        if (!string.IsNullOrEmpty(model.NewPassword))
+        {
+            user.password = md5Convert.md5gen(model.NewPassword);
+            _context.User.Update(user);
+            await _context.SaveChangesAsync();
+        
+            return Ok(new { message = "Password changed successfully." });
+        }
+
+        return BadRequest("New password cannot be empty.");
+    }
+
+    
     
 }

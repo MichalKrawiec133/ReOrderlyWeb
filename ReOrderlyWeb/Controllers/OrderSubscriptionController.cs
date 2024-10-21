@@ -9,10 +9,11 @@ namespace ReOrderlyWeb.Controllers
 {
     
     [ApiController]
+    [Authorize]
     public class OrderSubscriptionController : ControllerBase
     {
         private readonly ReOrderlyWebDbContext _context;
-//XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
+
         public OrderSubscriptionController(ReOrderlyWebDbContext context)
         {
             _context = context;
@@ -20,7 +21,6 @@ namespace ReOrderlyWeb.Controllers
         
         //wyswietlenie wszystkich subskrypcji
         [HttpGet("subscriptions")]
-        [Authorize] 
         public IActionResult GetCurrentSubscriptions()
         {
            
@@ -48,14 +48,22 @@ namespace ReOrderlyWeb.Controllers
                     User = new UserViewModel  
                     {
                         userId = o.User.userId,
+                        name = o.User.name,
                         lastName = o.User.lastName,
-                        emailAddress = o.User.emailAddress
+                        streetName = o.User.streetName,  
+                        houseNumber = o.User.houseNumber, 
+                        voivodeship = o.User.voivodeship,  
+                        country = o.User.country, 
+                        zipcode = o.User.zipcode,  
+                        emailAddress = o.User.emailAddress,
+                        phoneNumber = o.User.phoneNumber
                     },
                     Products = new ProductsViewModel 
                     {
                         productId = o.Products.productId,
                         productName = o.Products.productName,
-                        productPrice = o.Products.productPrice
+                        productPrice = o.Products.productPrice,
+                        
                     },
                     productQuantity = o.productQuantity,
                     intervalDays = o.intervalDays,
@@ -120,33 +128,41 @@ namespace ReOrderlyWeb.Controllers
             {
                 return Unauthorized("No valid user session.");
             }
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "UserId")?.Value;
-            int idUser = int.Parse(userIdClaim);
-            
-            var user = _context.User.SingleOrDefault(c => c.userId == idUser);
-
+            var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+    
             if (user == null)
             {
                 return Unauthorized("User not found.");
             }
 
-           
-            var patchSubscription = new OrderSubscription
+
+            var subscription = _context.OrderSubscription
+                .SingleOrDefault(o => o.orderSubscriptionId == subscriptionViewModel.orderSubscriptionId && o.idUser == user.userId);
+
+            if (subscription == null)
             {
-                orderSubscriptionId = subscriptionViewModel.orderSubscriptionId,
-                idUser = user.userId,
-                Products = new Products
-                {
-                    productName = subscriptionViewModel.Products.productName,
-                    productPrice = subscriptionViewModel.Products.productPrice
-                },
-                productQuantity = subscriptionViewModel.productQuantity,
-                intervalDays = subscriptionViewModel.intervalDays,
-                orderDate = subscriptionViewModel.orderDate
-            };
+                return NotFound("Subscription not found.");
+            }
 
             
-            _context.OrderSubscription.Update(patchSubscription);
+            subscription.productQuantity = subscriptionViewModel.productQuantity;
+            subscription.intervalDays = subscriptionViewModel.intervalDays;
+            subscription.orderDate = subscriptionViewModel.orderDate;
+
+            
+            var product = _context.Products.SingleOrDefault(p => p.productId == subscriptionViewModel.Products.productId);
+
+            if (product != null)
+            {
+                subscription.Products = product;
+            }
+            else
+            {
+                return NotFound("Product not found.");
+            }
+
+           
+            _context.OrderSubscription.Update(subscription);
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Subscription updated successfully." });

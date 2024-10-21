@@ -7,7 +7,8 @@ using ReOrderlyWeb.ViewModels;
 
 namespace ReOrderlyWeb.Controllers;
 
-
+[Authorize]
+[ApiController]
 public class OrderItemsController : ControllerBase
 {
     private readonly ReOrderlyWebDbContext _context;
@@ -16,10 +17,9 @@ public class OrderItemsController : ControllerBase
     {
         _context = context;
     }
-//XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
-    // Get all order items for a specific order
+
+    // pobierz itemy dla orderitems
     [HttpGet("{orderId}")]
-    [Authorize]
     public IActionResult GetOrderItems(int orderId)
     {
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
@@ -34,24 +34,43 @@ public class OrderItemsController : ControllerBase
             return Unauthorized("User not found.");
         }
 
+        // Sprawdzenie, czy zamówienie należy do użytkownika
+        var order = _context.Order.SingleOrDefault(o => o.orderId == orderId && o.idUser == user.userId);
+        if (order == null)
+        {
+            return NotFound("Order not found for the given user.");
+        }
+
+        
         var orderItems = _context.OrderItems
-            .Where(oi => oi.idOrder == orderId && oi.Order.idUser == user.userId)
+            .Where(oi => oi.idOrder == orderId)
             .Select(oi => new OrderItemsViewModel
             {
                 orderItemId = oi.orderItemId,
                 idProduct = oi.idProduct,
+                Products = new ProductsViewModel
+                {
+                    productId = oi.Products.productId,
+                    productName = oi.Products.productName,
+                    productPrice = oi.Products.productPrice,
+                    productQuantity = oi.Products.productQuantity
+                },
                 idOrder = oi.idOrder,
                 orderItemQuantity = oi.orderItemQuantity,
                 orderPrice = oi.orderPrice
             })
             .ToList();
 
+        if (orderItems == null || !orderItems.Any())
+        {
+            return NotFound("No order items found for this order.");
+        }
+
         return Ok(orderItems);
     }
 
-    // Add an item to an existing order
-    [HttpPost]
-    [Authorize]
+    // dodaj item do ordera
+    [HttpPost("addItem")] 
     public async Task<IActionResult> AddOrderItem([FromBody] OrderItemsViewModel orderItemViewModel)
     {
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
@@ -86,9 +105,8 @@ public class OrderItemsController : ControllerBase
         return Ok(new { message = "Order item added successfully." });
     }
 
-    // Update an order item
+    // aktualizacja itemu w orderitems
     [HttpPatch("{orderItemId}")]
-    [Authorize]
     public async Task<IActionResult> UpdateOrderItem(int orderItemId, [FromBody] OrderItemsViewModel orderItemViewModel)
     {
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;

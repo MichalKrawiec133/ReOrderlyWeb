@@ -8,6 +8,8 @@ using ReOrderlyWeb.ViewModels;
 namespace ReOrderlyWeb.Controllers;
     
 
+[Authorize]
+[ApiController]
 public class OrderController : ControllerBase
 {
     private readonly ReOrderlyWebDbContext _context;
@@ -16,16 +18,15 @@ public class OrderController : ControllerBase
     {
         _context = context;
     }
-//XXXXXXXXXXDDDDDDDDDDDDDDDDDDDDDD TODO: ZMIENIC TAK ZEBY WSZYSTKO BYLO NA JWT, CALKOWICIE USUNAC COOKIES.
+
     // pobranie wszystkich zamowien
     [HttpGet("orders")]
-    [Authorize]
     public IActionResult GetOrders()
     {
-        Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
+        //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
 
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-        Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
+        //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
         
         if (string.IsNullOrEmpty(email))
         {

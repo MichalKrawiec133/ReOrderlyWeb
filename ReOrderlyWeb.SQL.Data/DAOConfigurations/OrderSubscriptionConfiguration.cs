@@ -8,26 +8,25 @@ public class OrderSubscriptionConfiguration : IEntityTypeConfiguration<OrderSubs
 {
     public void Configure(EntityTypeBuilder<OrderSubscription> builder)
     {
+        // Primary key
         builder.HasKey(os => os.orderSubscriptionId);
-        
-        
+
+        // Foreign key relationship with User
         builder.HasOne(os => os.User)
-            .WithMany(u => u.OrderSubscriptions) 
+            .WithMany(u => u.OrderSubscriptions)
             .HasForeignKey(os => os.idUser)
             .IsRequired();
 
-        builder.HasOne(os => os.Products)
-            .WithMany()  
-            .HasForeignKey(os => os.idProduct)
+        // One-to-many relationship with OrderSubscriptionProducts
+        builder.HasMany(os => os.OrderSubscriptionProducts)
+            .WithOne(osp => osp.OrderSubscription)
+            .HasForeignKey(osp => osp.orderSubscriptionId)
             .IsRequired();
-            
 
-        
-        builder.Property(os => os.idUser).IsRequired();
-        builder.Property(os => os.productQuantity).IsRequired();
         builder.Property(os => os.intervalDays).IsRequired();
         builder.Property(os => os.orderDate).IsRequired();
 
         builder.ToTable("OrderSubscription");
     }
 }
+

@@ -12,6 +12,7 @@ namespace ReOrderlyWeb.SQL.Data
         public virtual DbSet<OrderItems> OrderItems { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<OrderSubscription> OrderSubscription { get; set; }
+        public virtual DbSet<OrderSubscriptionProduct> OrderSubscriptionProducts { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<User> User { get; set; }
 

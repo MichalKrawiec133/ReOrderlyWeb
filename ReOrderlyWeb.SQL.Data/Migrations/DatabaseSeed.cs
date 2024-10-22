@@ -42,6 +42,10 @@ public class DatabaseSeed
         var orderSubscriptionList = BuildOrderSubscriptionList();
         _context.OrderSubscription.AddRange(orderSubscriptionList);
         _context.SaveChanges();
+        
+        var orderSubscriptionProductList = BuildOrderSubscriptionProductList();
+        _context.OrderSubscriptionProducts.AddRange(orderSubscriptionProductList);
+        _context.SaveChanges();
             
     }
     
@@ -297,13 +301,11 @@ public class DatabaseSeed
     private IEnumerable<OrderSubscription> BuildOrderSubscriptionList()
     {
         var orderSubscriptionsList = new List<OrderSubscription>();
-        
+
         var orderSubscriptions = new OrderSubscription()
         {
             orderSubscriptionId = 1,
             idUser = 1,
-            idProduct = 1,
-            productQuantity = 3,
             intervalDays = 3,
             orderDate = DateOnly.FromDateTime(DateTime.Now),
         };
@@ -313,8 +315,6 @@ public class DatabaseSeed
         {
             orderSubscriptionId = 2,
             idUser = 3,
-            idProduct = 2,
-            productQuantity = 2,
             intervalDays = 7,
             orderDate = DateOnly.FromDateTime(DateTime.Now),
         };
@@ -324,37 +324,95 @@ public class DatabaseSeed
         {
             orderSubscriptionId = 3,
             idUser = 2,
-            idProduct = 3,
-            productQuantity = 12,
             intervalDays = 14,
+            orderDate = DateOnly.FromDateTime(DateTime.Now),
+        };
+        orderSubscriptionsList.Add(orderSubscriptions);
+
+        orderSubscriptions = new OrderSubscription()
+        {
+            orderSubscriptionId = 4,
+            idUser = 1,
+            intervalDays = 3,
             orderDate = DateOnly.FromDateTime(DateTime.Now),
         };
         orderSubscriptionsList.Add(orderSubscriptions);
         
         orderSubscriptions = new OrderSubscription()
         {
-            orderSubscriptionId = 4,
-            idUser = 1,
-            idProduct = 2,
-            productQuantity = 12,
-            intervalDays = 3,
-            orderDate = DateOnly.FromDateTime(DateTime.Now),
-        };
-        orderSubscriptionsList.Add(orderSubscriptions);
-        orderSubscriptions = new OrderSubscription()
-        {
             orderSubscriptionId = 5,
             idUser = 1,
-            idProduct = 3,
-            productQuantity = 34,
-            intervalDays = 31,
+            intervalDays = 6,
             orderDate = DateOnly.FromDateTime(DateTime.Now),
         };
         orderSubscriptionsList.Add(orderSubscriptions);
+
         return orderSubscriptionsList;
     }
 
-    //TODO: ZMIENIC CALA BAZE Z ORDER SUBSCRIPTIONS - dodac posrednia tabele zawierajaca produkty zawarte w danej subskrypcji . :)
+
+    private IEnumerable<OrderSubscriptionProduct> BuildOrderSubscriptionProductList()
+    {
+        var orderSubscriptionProductList = new List<OrderSubscriptionProduct>();
+
+        var orderSubscriptionProduct = new OrderSubscriptionProduct()
+        {
+            orderSubscriptionProductId = 1,
+            orderSubscriptionId = 1,
+            productId = 1,
+            productQuantity = 3
+        };
+        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+
+        orderSubscriptionProduct = new OrderSubscriptionProduct()
+        {
+            orderSubscriptionProductId = 2,
+            orderSubscriptionId = 2,
+            productId = 2,
+            productQuantity = 5
+        };
+        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+
+        orderSubscriptionProduct = new OrderSubscriptionProduct()
+        {
+            orderSubscriptionProductId = 3,
+            orderSubscriptionId = 3,
+            productId = 3,
+            productQuantity = 2
+        };
+        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+
+        orderSubscriptionProduct = new OrderSubscriptionProduct()
+        {
+            orderSubscriptionProductId = 4,
+            orderSubscriptionId = 4,
+            productId = 1,
+            productQuantity = 4
+        };
+        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+        orderSubscriptionProduct = new OrderSubscriptionProduct()
+        {
+            orderSubscriptionProductId = 5,
+            orderSubscriptionId = 5,
+            productId = 3,
+            productQuantity = 2
+        };
+        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+
+        /*
+        orderSubscriptionProduct = new OrderSubscriptionProduct()
+        {
+            orderSubscriptionProductId = 6,
+            orderSubscriptionId = 5,
+            productId = 1,
+            productQuantity = 4
+        };
+        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+        */
+
+        return orderSubscriptionProductList;
+    }
+    
     private string md5gen(string pass)
     {
         using (var md5 = MD5.Create()) 

@@ -15,4 +15,7 @@ public class Products
     public int productQuantity { get; set; }
 
     public virtual ICollection<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
+    
+    public virtual ICollection<OrderSubscriptionProduct> OrderSubscriptionProducts { get; set; } = new List<OrderSubscriptionProduct>();
 }
+    

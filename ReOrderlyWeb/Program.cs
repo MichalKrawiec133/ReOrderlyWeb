@@ -10,7 +10,7 @@ using Newtonsoft.Json.Serialization;
 using ReOrderlyWeb.SQL.Data;
 using ReOrderlyWeb.SQL.Data.Migrations;
 using Pomelo.EntityFrameworkCore.MySql;
-using ReOrderlyWeb.Services;
+/*using ReOrderlyWeb.Services;*/
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +47,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddCors();
 
+/*
 builder.Services.AddHostedService<SubscriptionOrderService>();
+*/
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

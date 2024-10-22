@@ -18,66 +18,67 @@ namespace ReOrderlyWeb.Controllers
         {
             _context = context;
         }
-        
-        //wyswietlenie wszystkich subskrypcji
-        [HttpGet("subscriptions")]
-        public IActionResult GetCurrentSubscriptions()
+            
+    // Wyświetlenie wszystkich subskrypcji
+    [HttpGet("subscriptions")]
+    public IActionResult GetCurrentSubscriptions()
+    {
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+        if (string.IsNullOrEmpty(email))
         {
-           
-            var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-            
-            if (string.IsNullOrEmpty(email))
-            {
-                return Unauthorized("No valid user session.");
-            }
-            
-            var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
-            
-            if (user == null)
-            {
-                return Unauthorized("User not found.");
-            }
-
-            //pobranie z bazy wszystkich subskrypcji dla danego usera. 
-            var subscriptions = _context.OrderSubscription
-                .Where(o => o.idUser == user.userId)
-                .Select(o => new OrderSubscriptionViewModel
-                {
-                    orderSubscriptionId = o.orderSubscriptionId,
-                    idUser = o.idUser,
-                    User = new UserViewModel  
-                    {
-                        userId = o.User.userId,
-                        name = o.User.name,
-                        lastName = o.User.lastName,
-                        streetName = o.User.streetName,  
-                        houseNumber = o.User.houseNumber, 
-                        voivodeship = o.User.voivodeship,  
-                        country = o.User.country, 
-                        zipcode = o.User.zipcode,  
-                        emailAddress = o.User.emailAddress,
-                        phoneNumber = o.User.phoneNumber
-                    },
-                    Products = new ProductsViewModel 
-                    {
-                        productId = o.Products.productId,
-                        productName = o.Products.productName,
-                        productPrice = o.Products.productPrice,
-                        
-                    },
-                    productQuantity = o.productQuantity,
-                    intervalDays = o.intervalDays,
-                    orderDate = o.orderDate
-                })
-                .ToList();
-
-            if (subscriptions == null || !subscriptions.Any())
-            {
-                return NotFound("No active subscriptions found for this user.");
-            }
-
-            return Ok(subscriptions);
+            return Unauthorized("No valid user session.");
         }
+
+        var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+
+        if (user == null)
+        {
+            return Unauthorized("User not found.");
+        }
+
+        
+        var subscriptions = _context.OrderSubscription
+            .Where(o => o.idUser == user.userId)
+            .Select(o => new OrderSubscriptionViewModel
+            {
+                orderSubscriptionId = o.orderSubscriptionId,
+                idUser = o.idUser,
+                User = new UserViewModel
+                {
+                    userId = o.User.userId,
+                    name = o.User.name,
+                    lastName = o.User.lastName,
+                    streetName = o.User.streetName,
+                    houseNumber = o.User.houseNumber,
+                    voivodeship = o.User.voivodeship,
+                    country = o.User.country,
+                    zipcode = o.User.zipcode,
+                    emailAddress = o.User.emailAddress,
+                    phoneNumber = o.User.phoneNumber
+                },
+                
+                Products = o.OrderSubscriptionProducts.Select(osp => new OrderSubscriptionProductViewModel
+                {
+                    orderSubscriptionProductId = osp.orderSubscriptionProductId,
+                    productId = osp.productId,
+                    productName = osp.Product.productName,
+                    productPrice = osp.Product.productPrice,
+                    productQuantity = osp.productQuantity
+                }).ToList(),
+                intervalDays = o.intervalDays,
+                orderDate = o.orderDate
+            })
+            .ToList();
+
+        if (subscriptions == null || !subscriptions.Any())
+        {
+            return NotFound("No active subscriptions found for this user.");
+        }
+
+        return Ok(subscriptions);
+    }
+            
         
         // dodanie subskrypcji
         [HttpPost("subscribe")]
@@ -89,7 +90,7 @@ namespace ReOrderlyWeb.Controllers
             {
                 return Unauthorized("No valid user session.");
             }
-            
+    
             var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
 
             if (user == null)
@@ -97,21 +98,30 @@ namespace ReOrderlyWeb.Controllers
                 return Unauthorized("User not found.");
             }
 
-           
+            // Retrieve the product from the database
+            var product = _context.Products.SingleOrDefault(p => p.productId == subscriptionViewModel.Products.productId);
+            if (product == null)
+            {
+                return NotFound("Product not found.");
+            }
+
+            // Create new subscription
             var newSubscription = new OrderSubscription
             {
                 idUser = user.userId,
-                Products = new Products
-                {
-                    productName = subscriptionViewModel.Products.productName,
-                    productPrice = subscriptionViewModel.Products.productPrice
-                },
-                productQuantity = subscriptionViewModel.productQuantity,
                 intervalDays = subscriptionViewModel.intervalDays,
-                orderDate = subscriptionViewModel.orderDate
+                orderDate = subscriptionViewModel.orderDate,
+                OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
+                {
+                    new OrderSubscriptionProduct
+                    {
+                        productId = product.productId,
+                        productQuantity = subscriptionViewModel.productQuantity
+                    }
+                }
             };
-
-            
+//TODO: ZMIENIC VIEWMODELE BO JESZCZE NIE SA ZAKTUALIZOWANE WZGLEDEM DAO - TZN PRODUCTQUANTITY USUNIETE Z ORDER SUBSCRIPTION 
+//A DODANE DO POSREDNIEJ. ORAZ NAPRAWIC EDYCJE, ANULOWANIE ORAZ SERVICE, PO CZYM PRZETESTOWAC CZY DZIALA. 
             _context.OrderSubscription.Add(newSubscription);
             await _context.SaveChangesAsync();
 
@@ -203,6 +213,7 @@ namespace ReOrderlyWeb.Controllers
 
             return Ok(new { message = "Subscription cancelled successfully." });
         }
+        
 
         
         

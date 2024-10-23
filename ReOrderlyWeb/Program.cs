@@ -4,13 +4,16 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using ReOrderlyWeb.SQL.Data;
 using ReOrderlyWeb.SQL.Data.Migrations;
 using Pomelo.EntityFrameworkCore.MySql;
-/*using ReOrderlyWeb.Services;*/
+using ReOrderlyWeb.ViewModels;
+
+using ReOrderlyWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +25,7 @@ var configuration = builder.Configuration;
 var connectionString = builder.Configuration.GetConnectionString("ReOrderlyWebDbContext");
 builder.Services.AddDbContext<ReOrderlyWebDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-        //.LogTo(Console.WriteLine, LogLevel.Information)
+        .LogTo(Console.WriteLine, LogLevel.Information)
     );
 builder.Services.AddTransient<DatabaseSeed>();
 builder.Services.AddControllers().AddNewtonsoftJson(options => {
@@ -47,14 +50,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddCors();
 
-/*
 builder.Services.AddHostedService<SubscriptionOrderService>();
-*/
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+    
+    c.MapType<LoginViewModel>(() => new OpenApiSchema
+    {
+        Type = "object",
+        Properties =
+        {
+            ["emailAddress"] = new OpenApiSchema { Type = "string", Example = new OpenApiString("mariannowak@wp.pl") },
+            ["password"] = new OpenApiSchema { Type = "string", Example = new OpenApiString("nowak") }
+        }
+    });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",

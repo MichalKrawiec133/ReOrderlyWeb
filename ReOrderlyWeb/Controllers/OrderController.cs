@@ -24,7 +24,7 @@ public class OrderController : ControllerBase
     public IActionResult GetOrders()
     {
         //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
-
+//todo: chyba trzeba dodac w orderitems itemquantity bo pobiera z bazy produktow, ale to jeszcze do sprawdzenia.  
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
         //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
         

@@ -9,7 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="" />
+    <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderItemsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderItemsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Services/SubscriptionOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Services/SubscriptionOrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionProductViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionProductViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionViewModel.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,8 +49,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8c1c57742337e59591581af3eb2c647e9ed52d2951655fd74b1facf3ff520/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce7580e8e0f6a2637f8ec8ab41c5fd2f845ad94ea18c76d554db62248d8954/HashAlgorithm.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3e11c961d12b2fefb2e241260357683bec19a3e8943c3398e4e4e57515e3140/DateOnly.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Controllers/OrderController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -142,6 +152,10 @@
       <workItem from="1727800521865" duration="6510000" />
       <workItem from="1727889030991" duration="3154000" />
       <workItem from="1729093536538" duration="8210000" />
+      <workItem from="1729178805817" duration="4425000" />
+      <workItem from="1729514579570" duration="13115000" />
+      <workItem from="1729614107929" duration="2095000" />
+      <workItem from="1729686398165" duration="10021000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -239,7 +253,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729103791422</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="przypomnienie o naprawie autoryzacji - zmiana z cookie na jwt. ?">
+      <option name="closed" value="true" />
+      <created>1729184266753</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1729184266753</updated>
+    </task>
+    <task id="LOCAL-00014" summary="dodany model zmiany hasla, w seedzie dodane wiecej pozycji, w tokenie json lekko pozmieniane w login controller. wiekszosc kontrolerow pozmieniana zeby uzywalo tokenu jwt. program.cs w takim samym celu zmienione. dodana zmiana konta w UserAccountController.cs">
+      <option name="closed" value="true" />
+      <created>1729530549962</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1729530549962</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +282,17 @@
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Abstractions" />
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Relational" />
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
@@ -268,6 +309,8 @@
     <MESSAGE value="BARDZO WAZNE, TRZEBA DODAC W DBCONTEXT ZASTOSOWANIE KONFIGURACJI :)))) i nagle wszystkie klucze działają" />
     <MESSAGE value="dodano duzo zmian do order subscription, orderitems, do ich dao, kontrolerow itd" />
     <MESSAGE value="dodany token logowania jwt, dwa nugety do tokenu jwt" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodany token logowania jwt, dwa nugety do tokenu jwt" />
+    <MESSAGE value="przypomnienie o naprawie autoryzacji - zmiana z cookie na jwt. ?" />
+    <MESSAGE value="dodany model zmiany hasla, w seedzie dodane wiecej pozycji, w tokenie json lekko pozmieniane w login controller. wiekszosc kontrolerow pozmieniana zeby uzywalo tokenu jwt. program.cs w takim samym celu zmienione. dodana zmiana konta w UserAccountController.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodany model zmiany hasla, w seedzie dodane wiecej pozycji, w tokenie json lekko pozmieniane w login controller. wiekszosc kontrolerow pozmieniana zeby uzywalo tokenu jwt. program.cs w takim samym celu zmienione. dodana zmiana konta w UserAccountController.cs" />
   </component>
 </project>

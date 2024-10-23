@@ -137,7 +137,7 @@ public class OrderItemsController : ControllerBase
         return Ok(new { message = "Order item updated successfully." });
     }
 
-    // Delete an order item
+    // usuniecie itemorder
     [HttpDelete("{orderItemId}")]
     [Authorize]
     public async Task<IActionResult> DeleteOrderItem(int orderItemId)

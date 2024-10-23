@@ -35,17 +35,17 @@ public class DatabaseSeed
         _context.Order.AddRange(orderList);
         _context.SaveChanges();
         
-        var orderItemsList = BuildOrderItemsList();
+        /*var orderItemsList = BuildOrderItemsList();
         _context.OrderItems.AddRange(orderItemsList);
-        _context.SaveChanges();
+        _context.SaveChanges();*/
         
         var orderSubscriptionList = BuildOrderSubscriptionList();
         _context.OrderSubscription.AddRange(orderSubscriptionList);
         _context.SaveChanges();
         
-        var orderSubscriptionProductList = BuildOrderSubscriptionProductList();
+        /*var orderSubscriptionProductList = BuildOrderSubscriptionProductList();
         _context.OrderSubscriptionProducts.AddRange(orderSubscriptionProductList);
-        _context.SaveChanges();
+        _context.SaveChanges();*/
             
     }
     
@@ -188,49 +188,60 @@ public class DatabaseSeed
 
     private IEnumerable<Order> BuildOrderList()
     {
-        DateTime localDate = DateTime.Now;
-        var orderList = new List<Order>();
-        var orders = new Order()
+        var orderList = new List<Order>
         {
-            orderId = 1,
-            idUser = 1,
-            idOrderStatus = 1,
-            orderDate = localDate,
+            new Order
+            {
+                orderId = 1,
+                idUser = 1,
+                idOrderStatus = 1,
+                orderDate = DateTime.Now,
+                OrderItems = new List<OrderItems>
+                {
+                    new OrderItems { idProduct = 2, orderItemQuantity = 3, orderPrice = 123 },
+                    new OrderItems { idProduct = 3, orderItemQuantity = 31, orderPrice = 321 }
+                }
+            },
+            new Order
+            {
+                orderId = 2,
+                idUser = 2,
+                idOrderStatus = 2,
+                orderDate = DateTime.Now,
+                OrderItems = new List<OrderItems>
+                {
+                    new OrderItems { idProduct = 1, orderItemQuantity = 5, orderPrice = 1123 }
+                }
+            },
+            new Order
+            {
+                orderId = 3,
+                idUser = 3,
+                idOrderStatus = 3,
+                orderDate = DateTime.Now,
+                OrderItems = new List<OrderItems>
+                {
+                    new OrderItems { idProduct = 3, orderItemQuantity = 12, orderPrice = 1523 }
+                }
+            },
+            new Order
+            {
+                orderId = 4,
+                idUser = 1,
+                idOrderStatus = 1,
+                orderDate = DateTime.Now,
+                OrderItems = new List<OrderItems>
+                {
+                    new OrderItems { idProduct = 1, orderItemQuantity = 85, orderPrice = 1523 },
+                    new OrderItems { idProduct = 4, orderItemQuantity = 85, orderPrice = 1523 }
+                }
+            }
         };
-        orderList.Add(orders);
-        
-        localDate = DateTime.Now;
-        orders = new Order()
-        {
-            orderId = 2,
-            idUser = 2,
-            idOrderStatus = 2,
-            orderDate = localDate,
-        };
-        orderList.Add(orders);
-        
-        localDate = DateTime.Now;
-        orders = new Order()
-        {
-            orderId = 3,
-            idUser = 3,
-            idOrderStatus = 3,
-            orderDate = localDate,
-        };
-        orderList.Add(orders);
-        orders = new Order()
-        {
-            orderId = 4,
-            idUser = 1,
-            idOrderStatus = 1,
-            orderDate = localDate,
-        };
-        orderList.Add(orders);
 
-        
         return orderList;
     }
 
+    /*
     private IEnumerable<OrderItems> BuildOrderItemsList()
     {
         var orderItemsList = new List<OrderItems>();
@@ -296,61 +307,85 @@ public class DatabaseSeed
         
         return orderItemsList;
     }
+    */
 
     
     private IEnumerable<OrderSubscription> BuildOrderSubscriptionList()
+{
+    var orderSubscriptionsList = new List<OrderSubscription>();
+
+    var orderSubscriptions = new OrderSubscription()
     {
-        var orderSubscriptionsList = new List<OrderSubscription>();
-
-        var orderSubscriptions = new OrderSubscription()
+        orderSubscriptionId = 1,
+        idUser = 1,
+        intervalDays = 3,
+        orderDate = DateOnly.FromDateTime(DateTime.Now).AddDays(-5),
+        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
-            orderSubscriptionId = 1,
-            idUser = 1,
-            intervalDays = 3,
-            orderDate = DateOnly.FromDateTime(DateTime.Now),
-        };
-        orderSubscriptionsList.Add(orderSubscriptions);
+            new OrderSubscriptionProduct { productId = 1, productQuantity = 3 },
+            new OrderSubscriptionProduct { productId = 2, productQuantity = 4 }
+        }
+    };
+    orderSubscriptionsList.Add(orderSubscriptions);
 
-        orderSubscriptions = new OrderSubscription()
+    orderSubscriptions = new OrderSubscription()
+    {
+        orderSubscriptionId = 2,
+        idUser = 3,
+        intervalDays = 7,
+        orderDate = DateOnly.FromDateTime(DateTime.Now),
+        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
-            orderSubscriptionId = 2,
-            idUser = 3,
-            intervalDays = 7,
-            orderDate = DateOnly.FromDateTime(DateTime.Now),
-        };
-        orderSubscriptionsList.Add(orderSubscriptions);
+            new OrderSubscriptionProduct { productId = 2, productQuantity = 5 }
+        }
+    };
+    orderSubscriptionsList.Add(orderSubscriptions);
 
-        orderSubscriptions = new OrderSubscription()
+    orderSubscriptions = new OrderSubscription()
+    {
+        orderSubscriptionId = 3,
+        idUser = 2,
+        intervalDays = 14,
+        orderDate = DateOnly.FromDateTime(DateTime.Now),
+        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
-            orderSubscriptionId = 3,
-            idUser = 2,
-            intervalDays = 14,
-            orderDate = DateOnly.FromDateTime(DateTime.Now),
-        };
-        orderSubscriptionsList.Add(orderSubscriptions);
+            new OrderSubscriptionProduct { productId = 3, productQuantity = 2 }
+        }
+    };
+    orderSubscriptionsList.Add(orderSubscriptions);
 
-        orderSubscriptions = new OrderSubscription()
+    orderSubscriptions = new OrderSubscription()
+    {
+        orderSubscriptionId = 4,
+        idUser = 1,
+        intervalDays = 3,
+        orderDate = DateOnly.FromDateTime(DateTime.Now).AddDays(-5),
+        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
-            orderSubscriptionId = 4,
-            idUser = 1,
-            intervalDays = 3,
-            orderDate = DateOnly.FromDateTime(DateTime.Now),
-        };
-        orderSubscriptionsList.Add(orderSubscriptions);
-        
-        orderSubscriptions = new OrderSubscription()
+            new OrderSubscriptionProduct { productId = 1, productQuantity = 4 }
+        }
+    };
+    orderSubscriptionsList.Add(orderSubscriptions);
+    
+    orderSubscriptions = new OrderSubscription()
+    {
+        orderSubscriptionId = 5,
+        idUser = 1,
+        intervalDays = 6,
+        orderDate = DateOnly.FromDateTime(DateTime.Now),
+        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
-            orderSubscriptionId = 5,
-            idUser = 1,
-            intervalDays = 6,
-            orderDate = DateOnly.FromDateTime(DateTime.Now),
-        };
-        orderSubscriptionsList.Add(orderSubscriptions);
+            new OrderSubscriptionProduct { productId = 3, productQuantity = 2 }
+        }
+    };
+    orderSubscriptionsList.Add(orderSubscriptions);
 
-        return orderSubscriptionsList;
-    }
+    return orderSubscriptionsList;
+}
 
 
+
+    /*
     private IEnumerable<OrderSubscriptionProduct> BuildOrderSubscriptionProductList()
     {
         var orderSubscriptionProductList = new List<OrderSubscriptionProduct>();
@@ -399,19 +434,18 @@ public class DatabaseSeed
         };
         orderSubscriptionProductList.Add(orderSubscriptionProduct);
 
-        /*
         orderSubscriptionProduct = new OrderSubscriptionProduct()
         {
             orderSubscriptionProductId = 6,
-            orderSubscriptionId = 5,
-            productId = 1,
+            orderSubscriptionId = 1,
+            productId = 2,
             productQuantity = 4
         };
         orderSubscriptionProductList.Add(orderSubscriptionProduct);
-        */
 
         return orderSubscriptionProductList;
     }
+    */
     
     private string md5gen(string pass)
     {

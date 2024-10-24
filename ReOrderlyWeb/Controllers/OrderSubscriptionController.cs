@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ReOrderlyWeb.SQL.Data;
 using ReOrderlyWeb.ViewModels;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 using ReOrderlyWeb.SQL.Data.DAO;
 
 namespace ReOrderlyWeb.Controllers
@@ -202,12 +203,55 @@ public IActionResult GetCurrentSubscriptions()
     }
 
         
+        // Usuwanie produktu z subskrypcji
+        [HttpDelete("subscriptions/product/{subscriptionId}/{productId}")]
+        public async Task<IActionResult> RemoveProductFromSubscription(int subscriptionId, int productId)
+        {
+            var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("No valid user session.");
+            }
+
+            var user = await _context.User.SingleOrDefaultAsync(c => c.emailAddress == email);
+
+            if (user == null)
+            {
+                return Unauthorized("User not found.");
+            }
+
+            // Znajdź subskrypcję
+            var subscription = await _context.OrderSubscription
+                .Include(s => s.OrderSubscriptionProducts) // Upewnij się, że ładujesz produkty
+                .SingleOrDefaultAsync(o => o.orderSubscriptionId == subscriptionId && o.idUser == user.userId);
+
+            if (subscription == null)
+            {
+                return NotFound("Subscription not found.");
+            }
+
+            // Znajdź produkt w subskrypcji
+            var subscriptionProduct = subscription.OrderSubscriptionProducts
+                .SingleOrDefault(p => p.orderSubscriptionProductId == productId);
+
+            if (subscriptionProduct == null)
+            {
+                return NotFound("Product not found in the subscription.");
+            }
+
+            // Usuń produkt z subskrypcji
+            _context.OrderSubscriptionProducts.Remove(subscriptionProduct);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Product removed from subscription successfully." });
+        }
+        
         
         //anulowanie subskrypcji 
-        
        
         [HttpDelete("subscriptions/{subscriptionId}")]
-        [Authorize]
+        
         public async Task<IActionResult> CancelSubscription(int subscriptionId)
         {
             var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;

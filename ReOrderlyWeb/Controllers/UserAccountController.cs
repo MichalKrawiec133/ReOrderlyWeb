@@ -19,8 +19,7 @@ public class UserAccountController : ControllerBase
         _context = context;
     }
     
-    //tworzenie konta.
-
+    
     [HttpGet("account")]
     public IActionResult GetUserData()
     {
@@ -43,6 +42,7 @@ public class UserAccountController : ControllerBase
             user.name,
             user.lastName,
             user.streetName,
+            user.emailAddress,
             user.houseNumber,
             user.voivodeship,
             user.country,
@@ -53,7 +53,7 @@ public class UserAccountController : ControllerBase
         return Ok(userData);
     }
     
-    
+    //tworzenie konta.
     [HttpPost("account")]
     public async Task<IActionResult> CreateUser([FromBody] UserViewModel userCreate)
     {
@@ -243,16 +243,16 @@ public class UserAccountController : ControllerBase
             return NotFound("User not found.");
         }
         
-        var oldPasswordHash = md5Convert.md5gen(model.OldPassword);
+        var oldPasswordHash = md5Convert.md5gen(model.oldPassword);
         if (user.password != oldPasswordHash)
         {
             return BadRequest("Old password is incorrect.");
         }
 
         
-        if (!string.IsNullOrEmpty(model.NewPassword))
+        if (!string.IsNullOrEmpty(model.newPassword))
         {
-            user.password = md5Convert.md5gen(model.NewPassword);
+            user.password = md5Convert.md5gen(model.newPassword);
             _context.User.Update(user);
             await _context.SaveChangesAsync();
         

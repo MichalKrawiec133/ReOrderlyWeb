@@ -200,9 +200,7 @@ public class UserAccountController : ControllerBase
     }
         
     
-    // usuwanie konta
     [HttpDelete("account")]
-    
     public async Task<IActionResult> DeleteAccount()
     {
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
@@ -218,38 +216,61 @@ public class UserAccountController : ControllerBase
         {
             return NotFound("User not found.");
         }
+
+
+        var orders = _context.Order
+            .Where(o => o.idUser == user.userId)  
+            .ToList();
+
+
+        foreach (var order in orders)
+        {
+
+            var orderItems = _context.OrderItems
+                .Where(oi => oi.idOrder == order.orderId)
+                .ToList();
+            
+            _context.OrderItems.RemoveRange(orderItems);
+            
+            _context.Order.Remove(order);
+        }
         
         _context.User.Remove(user);
+        
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Account deleted successfully." });
+        return Ok(new { message = "Account and associated orders deleted successfully." });
     }
+
+
     
-    
+    //zmiana hasla
     [HttpPatch("account/changePassword")]
     public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordViewModel model)
     {
-        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        
+        var email = string.IsNullOrEmpty(model.emailAddress) 
+            ? User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value
+            : model.emailAddress;
 
         if (string.IsNullOrEmpty(email))
         {
-            return Unauthorized("No valid user session.");
+            return Unauthorized("No valid user session or email provided.");
         }
-       
+
         var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
 
         if (user == null)
         {
             return NotFound("User not found.");
         }
-        
+
         var oldPasswordHash = md5Convert.md5gen(model.oldPassword);
         if (user.password != oldPasswordHash)
         {
             return BadRequest("Old password is incorrect.");
         }
 
-        
         if (!string.IsNullOrEmpty(model.newPassword))
         {
             user.password = md5Convert.md5gen(model.newPassword);

@@ -9,4 +9,6 @@ public class ProductsViewModel
     public double productPrice { get; set; }
 
     public int productQuantity { get; set; }
+    
+    public string imagePath { get; set; }
 }

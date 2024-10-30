@@ -64,7 +64,8 @@ public IActionResult GetCurrentSubscriptions()
                 {
                     productId = osp.Product.productId,
                     productName = osp.Product.productName,
-                    productPrice = osp.Product.productPrice
+                    productPrice = osp.Product.productPrice,
+                    imagePath = osp.Product.imagePath
                 },
                 productQuantity = osp.productQuantity
             }).ToList(),

@@ -29,8 +29,8 @@ public class LoginController : ControllerBase
         {
             return Unauthorized();
         }
-        
-        var token = GenerateToken(user);
+
+        var token = TokenJWT.GenerateToken(user);
         return Ok(new { token });
     }
     
@@ -39,29 +39,5 @@ public class LoginController : ControllerBase
     {
         return NoContent();
     }
-
-    //generacja tokenu
-    private string GenerateToken(User user)
-    {
-        var claims = new[]
-        {
-            new Claim(JwtRegisteredClaimNames.Sub, user.emailAddress),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("UserId", user.userId.ToString()),
-            new Claim(ClaimTypes.Name, user.name),
-            new Claim(ClaimTypes.Email, user.emailAddress)
-        };
-
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KLUCZDOTESTOWTESTTESTTESTTESTTESTTEST")); 
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-        var token = new JwtSecurityToken(
-            issuer: "API",
-            audience: "USER", 
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(30), 
-            signingCredentials: creds);
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
-    }
+    
 }

@@ -53,7 +53,8 @@ public class OrderItemsController : ControllerBase
                     productId = oi.Products.productId,
                     productName = oi.Products.productName,
                     productPrice = oi.Products.productPrice,
-                    productQuantity = oi.Products.productQuantity
+                    productQuantity = oi.Products.productQuantity,
+                    imagePath = oi.Products.imagePath,
                 },
                 idOrder = oi.idOrder,
                 orderItemQuantity = oi.orderItemQuantity,
@@ -96,7 +97,7 @@ public class OrderItemsController : ControllerBase
             idOrder = orderItemViewModel.idOrder,
             idProduct = orderItemViewModel.idProduct,
             orderItemQuantity = orderItemViewModel.orderItemQuantity,
-            orderPrice = orderItemViewModel.orderPrice
+            orderPrice = orderItemViewModel.orderPrice,
         };
 
         _context.OrderItems.Add(newOrderItem);

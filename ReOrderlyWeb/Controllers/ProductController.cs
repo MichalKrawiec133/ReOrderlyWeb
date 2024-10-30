@@ -22,7 +22,8 @@ public class ProductController : ControllerBase
                 productId = p.productId,
                 productName = p.productName,
                 productPrice = p.productPrice,
-                productQuantity = p.productQuantity
+                productQuantity = p.productQuantity,
+                imagePath = p.imagePath,
             })
             .ToList();
 

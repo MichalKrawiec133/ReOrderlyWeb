@@ -23,10 +23,8 @@ public class OrderController : ControllerBase
     [HttpGet("orders")]
     public IActionResult GetOrders()
     {
-        //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
-//todo: chyba trzeba dodac w orderitems itemquantity bo pobiera z bazy produktow, ale to jeszcze do sprawdzenia.  
+        
         var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-        //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb" + ClaimTypes.Email);
         
         if (string.IsNullOrEmpty(email))
         {
@@ -61,7 +59,8 @@ public class OrderController : ControllerBase
                             productId = oi.Products.productId,
                             productName = oi.Products.productName,
                             productPrice = oi.Products.productPrice,
-                            productQuantity = oi.Products.productQuantity
+                            productQuantity = oi.Products.productQuantity,
+                            imagePath = oi.Products.imagePath //todo: dodac do frontu wyswietlanie zdjecia
                         },
                         idOrder = oi.idOrder,
                         orderItemQuantity = oi.orderItemQuantity,
@@ -75,7 +74,7 @@ public class OrderController : ControllerBase
     }
 
 
-
+    //todo: dodac zmniejszanie liczby dostepnych produktow po zlozeniu zamowienia. 
     // dodaj nowe zamowienie
     [HttpPost("checkout")]
     public async Task<IActionResult> CreateOrder([FromBody] OrderViewModel orderViewModel)
@@ -120,7 +119,7 @@ public class OrderController : ControllerBase
                 orderPrice = item.orderPrice
             };
 
-            order.OrderItems.Add(orderItem); // Dodano do kolekcji
+            order.OrderItems.Add(orderItem); 
         }
 
         _context.Order.Add(order);

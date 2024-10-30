@@ -55,36 +55,78 @@ public class DatabaseSeed
         var products = new Products()
         {
             productId = 1,
-            productName = "masło 82% 250g.",
-            productPrice = 7.99,
+            productName = "Masło 82% 250g.",
+            productPrice = 8.99,
             productQuantity = 35,
+            imagePath = "/images/maslo.jpg",
         };
         productsList.Add(products);
         
         products = new Products()
         {
             productId = 2,
-            productName = "mleko 3,2% 1l.",
+            productName = "Mleko 3,2% 1l.",
             productPrice = 4.99,
             productQuantity = 79,
+            imagePath = "/images/mleko.jpg",
         };
         productsList.Add(products);
         
         products = new Products()
         {
             productId = 3,
-            productName = "jajka wiejskie 12szt.",
+            productName = "Jajka wiejskie 12szt.",
             productPrice = 14.99,
             productQuantity = 14,
+            imagePath = "/images/jajka.jpg"
         };
         productsList.Add(products);
         
         products = new Products()
         {
             productId = 4,
-            productName = "kefir naturalny 250ml.",
-            productPrice = 3.99,
-            productQuantity = 12,
+            productName = "Chleb swojski 1kg",
+            productPrice = 9.99,
+            productQuantity = 50,
+            imagePath = "/images/chleb.jpg"
+        };
+        productsList.Add(products);
+        
+        products = new Products()
+        {
+            productId = 5,
+            productName = "Kiełbaski grillowe surowe 1kg",
+            productPrice = 25.99,
+            productQuantity = 15,
+            imagePath = "/images/kielbasy.jpg"
+        };
+        productsList.Add(products);
+        
+        products = new Products()
+        {
+            productId = 6,
+            productName = "Szynka z indyka plastry 100g",
+            productPrice = 5.99,
+            productQuantity = 50,
+            imagePath = "/images/szynka_indyk.jpg"
+        };
+        productsList.Add(products);
+        products = new Products()
+        {
+            productId = 7,
+            productName = "Szynka plastry mix 100g",
+            productPrice = 7.99,
+            productQuantity = 50,
+            imagePath = "/images/szynka_mix.jpg"
+        };
+        productsList.Add(products);
+        products = new Products()
+        {
+            productId = 8,
+            productName = "Salami plastry 100g",
+            productPrice = 6.99,
+            productQuantity = 50,
+            imagePath = "/images/szynka_salami.jpg"
         };
         productsList.Add(products);
         

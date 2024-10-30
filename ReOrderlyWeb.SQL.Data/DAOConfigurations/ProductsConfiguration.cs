@@ -17,6 +17,7 @@ public class ProductsConfiguration : IEntityTypeConfiguration<Products>
             .WithOne(osp => osp.Product)
             .HasForeignKey(osp => osp.productId)
             .IsRequired();
+        builder.Property(p => p.imagePath);
         builder.ToTable("Product");
     }
 }

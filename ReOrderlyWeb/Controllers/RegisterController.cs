@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using ReOrderlyWeb.SQL.Data;
 using ReOrderlyWeb.SQL.Data.DAO;
@@ -55,7 +54,10 @@ public class RegisterController: ControllerBase
         _context.User.Add(newUser);
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Registration successful." });
+        var token = TokenJWT.GenerateToken(newUser);
+
+        return Ok(new { message = "Registration successful.", token });
     }
 
+    
 }

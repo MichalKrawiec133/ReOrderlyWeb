@@ -13,7 +13,7 @@ public class Products
     public double productPrice { get; set; }
     [Required]
     public int productQuantity { get; set; }
-
+    public string imagePath { get; set; }
     public virtual ICollection<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
     
     public virtual ICollection<OrderSubscriptionProduct> OrderSubscriptionProducts { get; set; } = new List<OrderSubscriptionProduct>();

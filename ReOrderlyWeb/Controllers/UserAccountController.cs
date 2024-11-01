@@ -107,10 +107,10 @@ public class UserAccountController : ControllerBase
 
         if (!string.IsNullOrEmpty(userCreate.password))
         {
-            var md5pass = md5Convert.md5gen(userCreate.password);
-            if (userAdd.password != md5pass)
+            var md5Pass = md5Convert.md5gen(userCreate.password);
+            if (userAdd.password != md5Pass)
             {
-                userAdd.password = md5pass;
+                userAdd.password = md5Pass;
             }
         }
 
@@ -179,10 +179,10 @@ public class UserAccountController : ControllerBase
 
         if (!string.IsNullOrEmpty(userUpdated.password))
         {
-            var md5pass = md5Convert.md5gen(userUpdated.password);
-            if (user.password != md5pass)
+            var md5Pass = md5Convert.md5gen(userUpdated.password);
+            if (user.password != md5Pass)
             {
-                user.password = md5pass;
+                user.password = md5Pass;
             }
         }
 

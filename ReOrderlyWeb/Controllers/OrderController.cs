@@ -74,7 +74,7 @@ public class OrderController : ControllerBase
     }
 
 
-    //todo: dodac zmniejszanie liczby dostepnych produktow po zlozeniu zamowienia. 
+    
     // dodaj nowe zamowienie
     [HttpPost("checkout")]
     public async Task<IActionResult> CreateOrder([FromBody] OrderViewModel orderViewModel)
@@ -106,7 +106,7 @@ public class OrderController : ControllerBase
         var order = new Order
         {
             idUser = user.userId,
-            idOrderStatus = orderViewModel.idOrderStatus,  
+            idOrderStatus = orderViewModel.OrderStatus.orderStatusId,  
             orderDate = orderViewModel.orderDate
         };
         
@@ -114,14 +114,27 @@ public class OrderController : ControllerBase
         {
             var orderItem = new OrderItems
             {
-                idProduct = item.idProduct,
+                idProduct = item.Products.productId,
                 orderItemQuantity = item.orderItemQuantity,
                 orderPrice = item.orderPrice
             };
 
             order.OrderItems.Add(orderItem); 
-        }
+       
+            var product = await _context.Products.FindAsync(item.Products.productId);
+            if (product == null)
+            {
+                return NotFound($"Product with ID {item.Products.productId} not found.");
+            }
 
+            if (product.productQuantity < item.orderItemQuantity)
+            {
+                return BadRequest($"Not enough stock for product ID {item.Products.productId}. Available: {product.productQuantity}, Requested: {item.orderItemQuantity}");
+            }
+
+            product.productQuantity -= item.orderItemQuantity;
+            order.OrderItems.Add(orderItem); 
+        }
         _context.Order.Add(order);
         await _context.SaveChangesAsync();
 

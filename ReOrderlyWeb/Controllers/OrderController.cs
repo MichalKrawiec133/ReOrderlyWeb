@@ -60,7 +60,7 @@ public class OrderController : ControllerBase
                             productName = oi.Products.productName,
                             productPrice = oi.Products.productPrice,
                             productQuantity = oi.Products.productQuantity,
-                            imagePath = oi.Products.imagePath //todo: dodac do frontu wyswietlanie zdjecia
+                            imagePath = oi.Products.imagePath 
                         },
                         idOrder = oi.idOrder,
                         orderItemQuantity = oi.orderItemQuantity,

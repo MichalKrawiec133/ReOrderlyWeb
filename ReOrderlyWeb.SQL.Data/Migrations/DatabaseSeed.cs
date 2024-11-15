@@ -240,8 +240,8 @@ public class DatabaseSeed
                 orderDate = DateTime.Now,
                 OrderItems = new List<OrderItems>
                 {
-                    new OrderItems { idProduct = 2, orderItemQuantity = 3, orderPrice = 123 },
-                    new OrderItems { idProduct = 3, orderItemQuantity = 31, orderPrice = 321 }
+                    new OrderItems { idProduct = 2, orderItemQuantity = 3, orderPrice = 14.97 },
+                    new OrderItems { idProduct = 3, orderItemQuantity = 1, orderPrice = 8.99 }
                 }
             },
             new Order
@@ -252,7 +252,7 @@ public class DatabaseSeed
                 orderDate = DateTime.Now,
                 OrderItems = new List<OrderItems>
                 {
-                    new OrderItems { idProduct = 1, orderItemQuantity = 5, orderPrice = 1123 }
+                    new OrderItems { idProduct = 1, orderItemQuantity = 5, orderPrice = 44.95 }
                 }
             },
             new Order
@@ -263,7 +263,7 @@ public class DatabaseSeed
                 orderDate = DateTime.Now,
                 OrderItems = new List<OrderItems>
                 {
-                    new OrderItems { idProduct = 3, orderItemQuantity = 12, orderPrice = 1523 }
+                    new OrderItems { idProduct = 3, orderItemQuantity = 12, orderPrice = 179.88 }
                 }
             },
             new Order
@@ -274,8 +274,8 @@ public class DatabaseSeed
                 orderDate = DateTime.Now,
                 OrderItems = new List<OrderItems>
                 {
-                    new OrderItems { idProduct = 1, orderItemQuantity = 85, orderPrice = 1523 },
-                    new OrderItems { idProduct = 4, orderItemQuantity = 85, orderPrice = 1523 }
+                    new OrderItems { idProduct = 5, orderItemQuantity = 2, orderPrice = 51.98 },
+                    new OrderItems { idProduct = 7, orderItemQuantity = 5, orderPrice = 39.95 }
                 }
             }
         };

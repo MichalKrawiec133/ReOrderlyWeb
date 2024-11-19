@@ -83,8 +83,6 @@ public IActionResult GetCurrentSubscriptions()
     return Ok(subscriptions);
 }
 
-            
-        //TODO: przyjmuje tylko jeden produkt zamiast wszystkich
         // dodanie subskrypcji
         [HttpPost("subscribe")]
         public async Task<IActionResult> AddSubscription([FromBody] OrderSubscriptionViewModel subscriptionViewModel)

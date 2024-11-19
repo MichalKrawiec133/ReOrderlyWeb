@@ -35,18 +35,13 @@ public class DatabaseSeed
         _context.Order.AddRange(orderList);
         _context.SaveChanges();
         
-        /*var orderItemsList = BuildOrderItemsList();
-        _context.OrderItems.AddRange(orderItemsList);
-        _context.SaveChanges();*/
-        
         var orderSubscriptionList = BuildOrderSubscriptionList();
         _context.OrderSubscription.AddRange(orderSubscriptionList);
         _context.SaveChanges();
-        
-        /*var orderSubscriptionProductList = BuildOrderSubscriptionProductList();
-        _context.OrderSubscriptionProducts.AddRange(orderSubscriptionProductList);
-        _context.SaveChanges();*/
-            
+
+        var adminList = BuildAdminList();
+        _context.Admin.AddRange(adminList);
+        _context.SaveChanges();
     }
     
     private IEnumerable<Products> BuildProductsList()
@@ -282,75 +277,6 @@ public class DatabaseSeed
 
         return orderList;
     }
-
-    /*
-    private IEnumerable<OrderItems> BuildOrderItemsList()
-    {
-        var orderItemsList = new List<OrderItems>();
-        var orderItems = new OrderItems()
-        {
-            orderItemId = 1,
-            idProduct = 2,
-            idOrder = 1,
-            orderItemQuantity = 3,
-            orderPrice = 123,
-        };
-        orderItemsList.Add(orderItems);
-        
-        orderItems = new OrderItems()
-        {
-            orderItemId = 2,
-            idProduct = 3,
-            idOrder = 1,
-            orderItemQuantity = 31,
-            orderPrice = 321,
-        };
-        orderItemsList.Add(orderItems);
-        
-        orderItems = new OrderItems()
-        {
-            orderItemId = 3,
-            idProduct = 1,
-            idOrder = 2,
-            orderItemQuantity = 5,
-            orderPrice = 1123,
-        };
-        orderItemsList.Add(orderItems);
-        
-        orderItems = new OrderItems()
-        {
-            orderItemId = 4,
-            idProduct = 3,
-            idOrder = 3,
-            orderItemQuantity = 12,
-            orderPrice = 1523,
-        };
-        orderItemsList.Add(orderItems);
-        
-        orderItems = new OrderItems()
-        {
-            orderItemId = 5,
-            idProduct = 1,
-            idOrder = 4,
-            orderItemQuantity = 85,
-            orderPrice = 1523,
-        };
-        orderItemsList.Add(orderItems);
-        
-        orderItems = new OrderItems()
-        {
-            orderItemId = 6,
-            idProduct = 4,
-            idOrder = 4,
-            orderItemQuantity = 85,
-            orderPrice = 1523,
-        };
-        orderItemsList.Add(orderItems);
-        
-        return orderItemsList;
-    }
-    */
-
     
     private IEnumerable<OrderSubscription> BuildOrderSubscriptionList()
 {
@@ -425,69 +351,29 @@ public class DatabaseSeed
     return orderSubscriptionsList;
 }
 
-
-
-    /*
-    private IEnumerable<OrderSubscriptionProduct> BuildOrderSubscriptionProductList()
+    private IEnumerable<Admin> BuildAdminList()
     {
-        var orderSubscriptionProductList = new List<OrderSubscriptionProduct>();
+        var adminList = new List<Admin>();
 
-        var orderSubscriptionProduct = new OrderSubscriptionProduct()
+        var admin = new Admin()
         {
-            orderSubscriptionProductId = 1,
-            orderSubscriptionId = 1,
-            productId = 1,
-            productQuantity = 3
-        };
-        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+            adminId = 1,
+            userId = 1
 
-        orderSubscriptionProduct = new OrderSubscriptionProduct()
-        {
-            orderSubscriptionProductId = 2,
-            orderSubscriptionId = 2,
-            productId = 2,
-            productQuantity = 5
         };
-        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+        adminList.Add(admin);
+        admin = new Admin()
+        {
+            adminId = 2,
+            userId = 2
 
-        orderSubscriptionProduct = new OrderSubscriptionProduct()
-        {
-            orderSubscriptionProductId = 3,
-            orderSubscriptionId = 3,
-            productId = 3,
-            productQuantity = 2
         };
-        orderSubscriptionProductList.Add(orderSubscriptionProduct);
+        adminList.Add(admin);
 
-        orderSubscriptionProduct = new OrderSubscriptionProduct()
-        {
-            orderSubscriptionProductId = 4,
-            orderSubscriptionId = 4,
-            productId = 1,
-            productQuantity = 4
-        };
-        orderSubscriptionProductList.Add(orderSubscriptionProduct);
-        orderSubscriptionProduct = new OrderSubscriptionProduct()
-        {
-            orderSubscriptionProductId = 5,
-            orderSubscriptionId = 5,
-            productId = 3,
-            productQuantity = 2
-        };
-        orderSubscriptionProductList.Add(orderSubscriptionProduct);
-
-        orderSubscriptionProduct = new OrderSubscriptionProduct()
-        {
-            orderSubscriptionProductId = 6,
-            orderSubscriptionId = 1,
-            productId = 2,
-            productQuantity = 4
-        };
-        orderSubscriptionProductList.Add(orderSubscriptionProduct);
-
-        return orderSubscriptionProductList;
+        
+        return adminList;
     }
-    */
+    
     
     private string md5gen(string pass)
     {

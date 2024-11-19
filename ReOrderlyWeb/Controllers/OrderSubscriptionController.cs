@@ -57,7 +57,7 @@ public IActionResult GetCurrentSubscriptions()
                 phoneNumber = o.User.phoneNumber
             },
 
-            OrderSubscriptionProducts = o.OrderSubscriptionProducts.Select(osp => new OrderSubscriptionProductViewModel
+            orderSubscriptionProducts = o.orderSubscriptionProducts.Select(osp => new OrderSubscriptionProductViewModel
             {
                 orderSubscriptionProductId = osp.orderSubscriptionProductId,
                 Products = new ProductsViewModel
@@ -84,7 +84,7 @@ public IActionResult GetCurrentSubscriptions()
 }
 
             
-        
+        //TODO: przyjmuje tylko jeden produkt zamiast wszystkich
         // dodanie subskrypcji
         [HttpPost("subscribe")]
         public async Task<IActionResult> AddSubscription([FromBody] OrderSubscriptionViewModel subscriptionViewModel)
@@ -104,7 +104,7 @@ public IActionResult GetCurrentSubscriptions()
             }
 
             // Pobranie produktu z bazy danych
-            var product = _context.Products.SingleOrDefault(p => p.productId == subscriptionViewModel.OrderSubscriptionProducts.First().Products.productId);
+            var product = _context.Products.SingleOrDefault(p => p.productId == subscriptionViewModel.orderSubscriptionProducts.First().Products.productId);
             if (product == null)
             {
                 return NotFound("Product not found.");
@@ -116,14 +116,12 @@ public IActionResult GetCurrentSubscriptions()
                 idUser = user.userId,
                 intervalDays = subscriptionViewModel.intervalDays,
                 orderDate = subscriptionViewModel.orderDate,
-                OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
-                {
-                    new OrderSubscriptionProduct
+                orderSubscriptionProducts = subscriptionViewModel.orderSubscriptionProducts
+                    .Select(product => new OrderSubscriptionProduct
                     {
-                        productId = product.productId,
-                        productQuantity = subscriptionViewModel.OrderSubscriptionProducts.First().productQuantity 
-                    }
-                }
+                        productId = product.Products.productId,
+                        productQuantity = product.productQuantity
+                    }).ToList()
             };
 
             _context.OrderSubscription.Add(newSubscription);
@@ -165,7 +163,7 @@ public IActionResult GetCurrentSubscriptions()
         subscription.orderDate = subscriptionViewModel.orderDate;
 
         
-        foreach (var productViewModel in subscriptionViewModel.OrderSubscriptionProducts)
+        foreach (var productViewModel in subscriptionViewModel.orderSubscriptionProducts)
         {
             var productInDb = _context.OrderSubscriptionProducts
                 .SingleOrDefault(p => p.orderSubscriptionProductId == productViewModel.orderSubscriptionProductId);
@@ -188,7 +186,7 @@ public IActionResult GetCurrentSubscriptions()
             else
             {
                 
-                subscription.OrderSubscriptionProducts.Add(new OrderSubscriptionProduct
+                subscription.orderSubscriptionProducts.Add(new OrderSubscriptionProduct
                 {
                     productId = productViewModel.Products.productId,
                     productQuantity = productViewModel.productQuantity,
@@ -224,7 +222,7 @@ public IActionResult GetCurrentSubscriptions()
 
             // Znajdź subskrypcję
             var subscription = await _context.OrderSubscription
-                .Include(s => s.OrderSubscriptionProducts) // Upewnij się, że ładujesz produkty
+                .Include(s => s.orderSubscriptionProducts) // Upewnij się, że ładujesz produkty
                 .SingleOrDefaultAsync(o => o.orderSubscriptionId == subscriptionId && o.idUser == user.userId);
 
             if (subscription == null)
@@ -233,7 +231,7 @@ public IActionResult GetCurrentSubscriptions()
             }
 
             // Znajdź produkt w subskrypcji
-            var subscriptionProduct = subscription.OrderSubscriptionProducts
+            var subscriptionProduct = subscription.orderSubscriptionProducts
                 .SingleOrDefault(p => p.orderSubscriptionProductId == productId);
 
             if (subscriptionProduct == null)

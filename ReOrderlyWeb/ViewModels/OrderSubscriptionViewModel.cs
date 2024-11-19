@@ -9,7 +9,7 @@ public class OrderSubscriptionViewModel
     public DateOnly orderDate { get; set; }
     
     // Kolekcja produktów
-    public List<OrderSubscriptionProductViewModel> OrderSubscriptionProducts { get; set; }
+    public List<OrderSubscriptionProductViewModel> orderSubscriptionProducts { get; set; }
 
 }
 

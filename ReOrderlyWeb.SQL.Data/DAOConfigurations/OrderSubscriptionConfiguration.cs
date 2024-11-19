@@ -18,7 +18,7 @@ public class OrderSubscriptionConfiguration : IEntityTypeConfiguration<OrderSubs
             .IsRequired();
 
         // One-to-many relationship with OrderSubscriptionProducts
-        builder.HasMany(os => os.OrderSubscriptionProducts)
+        builder.HasMany(os => os.orderSubscriptionProducts)
             .WithOne(osp => osp.OrderSubscription)
             .HasForeignKey(osp => osp.orderSubscriptionId)
             .IsRequired();

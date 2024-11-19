@@ -13,7 +13,7 @@ public class OrderSubscriptionProductConfiguration : IEntityTypeConfiguration<Or
         
         // Foreign key relationship with OrderSubscription
         builder.HasOne(osp => osp.OrderSubscription)
-            .WithMany(os => os.OrderSubscriptionProducts)
+            .WithMany(os => os.orderSubscriptionProducts)
             .HasForeignKey(osp => osp.orderSubscriptionId)
             .IsRequired();
 

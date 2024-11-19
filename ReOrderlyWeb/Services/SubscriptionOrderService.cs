@@ -36,7 +36,7 @@ public class SubscriptionOrderService : BackgroundService
     {
         var today = DateTime.Today;
         var subscriptionsToProcess = await context.OrderSubscription
-            .Include(s => s.OrderSubscriptionProducts) 
+            .Include(s => s.orderSubscriptionProducts) 
             .Where(s => today >= s.orderDate.ToDateTime(TimeOnly.MinValue).AddDays(s.intervalDays))
             .ToListAsync(); 
         //include zapewnia pobranie powiązanych danych do ordersubscription, bez tego nie pobiera products.
@@ -65,7 +65,7 @@ public class SubscriptionOrderService : BackgroundService
         //_logger.LogInformation("Subscription products count: {count}", subscription.OrderSubscriptionProducts.Count);
 
         
-        foreach (var subscriptionProduct in subscription.OrderSubscriptionProducts)
+        foreach (var subscriptionProduct in subscription.orderSubscriptionProducts)
         {
             //_logger.LogInformation("Processing subscription product: {@subscriptionProduct}", subscriptionProduct);
 

@@ -362,7 +362,7 @@ public class DatabaseSeed
         idUser = 1,
         intervalDays = 3,
         orderDate = DateOnly.FromDateTime(DateTime.Now).AddDays(-5),
-        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
+        orderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
             new OrderSubscriptionProduct { productId = 1, productQuantity = 3 },
             new OrderSubscriptionProduct { productId = 2, productQuantity = 4 }
@@ -376,7 +376,7 @@ public class DatabaseSeed
         idUser = 3,
         intervalDays = 7,
         orderDate = DateOnly.FromDateTime(DateTime.Now),
-        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
+        orderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
             new OrderSubscriptionProduct { productId = 2, productQuantity = 5 }
         }
@@ -389,7 +389,7 @@ public class DatabaseSeed
         idUser = 2,
         intervalDays = 14,
         orderDate = DateOnly.FromDateTime(DateTime.Now),
-        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
+        orderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
             new OrderSubscriptionProduct { productId = 3, productQuantity = 2 }
         }
@@ -402,7 +402,7 @@ public class DatabaseSeed
         idUser = 1,
         intervalDays = 3,
         orderDate = DateOnly.FromDateTime(DateTime.Now).AddDays(-5),
-        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
+        orderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
             new OrderSubscriptionProduct { productId = 1, productQuantity = 4 }
         }
@@ -415,7 +415,7 @@ public class DatabaseSeed
         idUser = 1,
         intervalDays = 6,
         orderDate = DateOnly.FromDateTime(DateTime.Now),
-        OrderSubscriptionProducts = new List<OrderSubscriptionProduct>
+        orderSubscriptionProducts = new List<OrderSubscriptionProduct>
         {
             new OrderSubscriptionProduct { productId = 3, productQuantity = 2 }
         }

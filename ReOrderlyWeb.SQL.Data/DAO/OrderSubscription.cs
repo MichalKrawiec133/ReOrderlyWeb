@@ -18,5 +18,5 @@ public class OrderSubscription
     [Required]
     public DateOnly orderDate { get; set; }
     
-    public virtual ICollection<OrderSubscriptionProduct> OrderSubscriptionProducts { get; set; } = new List<OrderSubscriptionProduct>();
+    public virtual ICollection<OrderSubscriptionProduct> orderSubscriptionProducts { get; set; } = new List<OrderSubscriptionProduct>();
 }

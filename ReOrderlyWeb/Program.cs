@@ -42,6 +42,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuerSigningKey = true,
         ValidIssuer = "API", 
         ValidAudience = "USER", 
+        ClockSkew = TimeSpan.Zero,//TODO: usuwa domyslny czas waznosci tokenu - 5min
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KLUCZDOTESTOWTESTTESTTESTTESTTESTTEST")) // DO ZMIANY PRZY PUBLIKOWANIU
     };
 });

@@ -54,51 +54,41 @@ public class SubscriptionOrderService : BackgroundService
         var newOrder = new Order
         {
             idUser = subscription.idUser,
-            idOrderStatus = 1,  
+            idOrderStatus = 1, 
             orderDate = DateTime.Now
         };
 
         context.Order.Add(newOrder);
-        await context.SaveChangesAsync();  
+        await context.SaveChangesAsync(); 
 
-        //_logger.LogInformation("Processing subscription: {@subscription}", subscription);
-        //_logger.LogInformation("Subscription products count: {count}", subscription.OrderSubscriptionProducts.Count);
-
-        
         foreach (var subscriptionProduct in subscription.orderSubscriptionProducts)
         {
-            //_logger.LogInformation("Processing subscription product: {@subscriptionProduct}", subscriptionProduct);
-
             var product = await context.Products.FindAsync(subscriptionProduct.productId);
 
             if (product != null)
             {
-                _logger.LogInformation("Product found: {@product}", product);
-
+                double itemTotalPrice = product.productPrice * subscriptionProduct.productQuantity; 
+                
                 var orderItem = new OrderItems
                 {
                     idOrder = newOrder.orderId,
-                    idProduct = product.productId,  
+                    idProduct = product.productId,
                     orderItemQuantity = subscriptionProduct.productQuantity,
-                    orderPrice = 10 //todo: do zmiany na przeliczenie faktycznej ceny zamowienia
+                    orderPrice = itemTotalPrice 
                 };
 
                 context.OrderItems.Add(orderItem);
-                _logger.LogInformation("Order item created: {@orderItem}", orderItem);
+                
             }
-            else
-            {
-                _logger.LogWarning("Product not found for productId: {productId}", subscriptionProduct.productId);
-            }
-
             
-            _logger.LogInformation("Product quantity: {productQuantity}", subscriptionProduct.productQuantity);
         }
 
-        
         subscription.orderDate = DateOnly.FromDateTime(DateTime.Now);
-        await context.SaveChangesAsync();
+
+        await context.SaveChangesAsync(); 
+        
     }
+
 
 
 }

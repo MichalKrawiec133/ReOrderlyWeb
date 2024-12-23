@@ -26,7 +26,7 @@ public class TokenJWT
             issuer: "API",
             audience: "USER", 
             claims: claims,
-            expires: DateTime.Now.AddSeconds(30), //TODO: zmiana na faktyczną wartość. 30 sekund dla testów
+            expires: DateTime.Now.AddSeconds(300), //TODO: zmiana na faktyczną wartość. 300 sekund dla testów
             signingCredentials: creds);
 
         return new JwtSecurityTokenHandler().WriteToken(token);

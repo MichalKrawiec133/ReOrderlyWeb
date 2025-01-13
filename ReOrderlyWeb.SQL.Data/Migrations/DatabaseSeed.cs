@@ -38,10 +38,7 @@ public class DatabaseSeed
         var orderSubscriptionList = BuildOrderSubscriptionList();
         _context.OrderSubscription.AddRange(orderSubscriptionList);
         _context.SaveChanges();
-
-        var adminList = BuildAdminList();
-        _context.Admin.AddRange(adminList);
-        _context.SaveChanges();
+        
     }
     
     private IEnumerable<Products> BuildProductsList()
@@ -216,10 +213,7 @@ public class DatabaseSeed
             orderStatusDescription = "Przekazane do doręczenia",
         };
         orderStatusList.Add(orderStatus);
-        /*foreach (var status in orderStatusList)
-        {
-            Console.WriteLine($"ID: {status.orderStatusId}, Description: {status.orderStatusDescription}");
-        }*/
+        
         return orderStatusList;
     }
 
@@ -350,29 +344,6 @@ public class DatabaseSeed
 
     return orderSubscriptionsList;
 }
-
-    private IEnumerable<Admin> BuildAdminList()
-    {
-        var adminList = new List<Admin>();
-
-        var admin = new Admin()
-        {
-            adminId = 1,
-            userId = 1
-
-        };
-        adminList.Add(admin);
-        admin = new Admin()
-        {
-            adminId = 2,
-            userId = 2
-
-        };
-        adminList.Add(admin);
-
-        
-        return adminList;
-    }
     
     
     private string md5gen(string pass)

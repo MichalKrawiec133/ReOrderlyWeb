@@ -15,10 +15,8 @@ namespace ReOrderlyWeb.SQL.Data
         public virtual DbSet<OrderSubscriptionProduct> OrderSubscriptionProducts { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<User> User { get; set; }
-
-        public virtual DbSet<Admin> Admin { get; set; }
         
-        //bardzo wazne, zastosowanie konfiguracji, bez tego były wszystkie problemy z kluczami 
+        // zastosowanie konfiguracji
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ReOrderlyWebDbContext).Assembly);

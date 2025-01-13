@@ -8,25 +8,17 @@ public class OrderSubscriptionProductConfiguration : IEntityTypeConfiguration<Or
 {
     public void Configure(EntityTypeBuilder<OrderSubscriptionProduct> builder)
     {
-        // Primary key
+     
         builder.HasKey(osp => osp.orderSubscriptionProductId);
-        
-        // Foreign key relationship with OrderSubscription
         builder.HasOne(osp => osp.OrderSubscription)
             .WithMany(os => os.orderSubscriptionProducts)
             .HasForeignKey(osp => osp.orderSubscriptionId)
             .IsRequired();
-
-        // Foreign key relationship with Product
         builder.HasOne(osp => osp.Product)
             .WithMany(p => p.OrderSubscriptionProducts)
-            .HasForeignKey(osp => osp.productId) // Assuming `productId` is the foreign key
+            .HasForeignKey(osp => osp.productId) 
             .IsRequired();
-
-        // Other required properties
         builder.Property(osp => osp.productQuantity).IsRequired();
-
-        // Mapping to the table
         builder.ToTable("OrderSubscriptionProduct");
     }
 }

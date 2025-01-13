@@ -11,14 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c75c0f87-ac60-4cee-996f-e4a42314dd3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReOrderlyWeb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAO/Admin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/DAOConfigurations/AdminConfiguration.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderItemsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderItemsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/OrderSubscriptionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/TokenJWT.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Controllers/TokenJWT.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/Services/SubscriptionOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/Services/SubscriptionOrderService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionProductViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionProductViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReOrderlyWeb/ViewModels/OrderSubscriptionViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +42,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/25a8295191464bdf6f91ab7d2df7d725a4c28e67f61c24b6ef4c278d9d2dcc/MD5Digest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5553559cdb4b5664893497ec3d7831e41e3f7cff9dd2ef3258115769f70aa/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8c1c57742337e59591581af3eb2c647e9ed52d2951655fd74b1facf3ff520/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce7580e8e0f6a2637f8ec8ab41c5fd2f845ad94ea18c76d554db62248d8954/HashAlgorithm.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3e11c961d12b2fefb2e241260357683bec19a3e8943c3398e4e4e57515e3140/DateOnly.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Controllers/OrderController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb.SQL.Data/Migrations/DatabaseSeed.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb.SQL.Data/ReOrderlyWebDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/ReOrderlyWebApp/ReOrderlyWeb/ReOrderlyWeb/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -69,6 +66,7 @@
   &quot;keyToString&quot;: {
     &quot;.NET Launch Settings Profile.ReOrderlyWeb: https.executor&quot;: &quot;Run&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -78,8 +76,15 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderIisExpressOptionsPageId&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\micha\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\micha\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\micha\\AppData\\Local\\Symbols\\src&quot;
+    ]
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ReOrderlyWeb: https">
@@ -128,6 +133,11 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.ReOrderlyWeb: http" />
+      <item itemvalue=".NET Launch Settings Profile.ReOrderlyWeb: https" />
+      <item itemvalue=".NET Launch Settings Profile.ReOrderlyWeb: IIS Express" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -155,7 +165,30 @@
       <workItem from="1729178805817" duration="4425000" />
       <workItem from="1729514579570" duration="13115000" />
       <workItem from="1729614107929" duration="2095000" />
-      <workItem from="1729686398165" duration="10021000" />
+      <workItem from="1729686398165" duration="10217000" />
+      <workItem from="1729779249818" duration="5992000" />
+      <workItem from="1730129206310" duration="6141000" />
+      <workItem from="1730211260644" duration="3864000" />
+      <workItem from="1730301828739" duration="7358000" />
+      <workItem from="1730390569331" duration="5427000" />
+      <workItem from="1730716581797" duration="655000" />
+      <workItem from="1731453194584" duration="111000" />
+      <workItem from="1731453324265" duration="86000" />
+      <workItem from="1731514813929" duration="4616000" />
+      <workItem from="1731599822724" duration="3849000" />
+      <workItem from="1731675891630" duration="4064000" />
+      <workItem from="1731946787021" duration="1707000" />
+      <workItem from="1732029419029" duration="7832000" />
+      <workItem from="1732382195830" duration="2021000" />
+      <workItem from="1732825322327" duration="166000" />
+      <workItem from="1734981455076" duration="1920000" />
+      <workItem from="1734985943969" duration="349000" />
+      <workItem from="1734986805442" duration="366000" />
+      <workItem from="1734988831028" duration="2829000" />
+      <workItem from="1735571808634" duration="769000" />
+      <workItem from="1736167241051" duration="1818000" />
+      <workItem from="1736202396858" duration="40000" />
+      <workItem from="1736787501957" duration="1751000" />
     </task>
     <task id="LOCAL-00001" summary="dbcontext">
       <option name="closed" value="true" />
@@ -269,7 +302,55 @@
       <option name="project" value="LOCAL" />
       <updated>1729530549962</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="zmiany w seedzie zwiazane z tabelami łączącymi. w subscriptioncontroller dodane uzycie tabeli posredniej, w swaggerze dodane dane uzytkownika zeby za kazdym razem nie wpisywac przy logowaniu. naprawiony cały subscription service">
+      <option name="closed" value="true" />
+      <created>1729696851328</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729696851328</updated>
+    </task>
+    <task id="LOCAL-00016" summary="dodany endpoint usuwania produktu subskrypcji">
+      <option name="closed" value="true" />
+      <created>1729791259681</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1729791259681</updated>
+    </task>
+    <task id="LOCAL-00017" summary="dodany adres email do ChangePasswordViewModel.cs i do UserAccountController.cs">
+      <option name="closed" value="true" />
+      <created>1730137771422</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1730137771422</updated>
+    </task>
+    <task id="LOCAL-00018" summary="dodany folder ze zdjeciami, ale raczej bedzie do usuniecia. do modelu products dodany imagepath a w zwiazku z tym zmiany w uzyciach oraz seedzie dla products. generacja tokenu jwt przeniesiona do osobnej klasy.">
+      <option name="closed" value="true" />
+      <created>1730311574185</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1730311574185</updated>
+    </task>
+    <task id="LOCAL-00019" summary="poprawione literowki OrderSubscriptionProduct do orderSubscriptionProduct. Poprawiony POST subskrypcji aby przyjmowal wiecej niz 1 produkt subskrypcji.">
+      <option name="closed" value="true" />
+      <created>1732040716819</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732040716819</updated>
+    </task>
+    <task id="LOCAL-00020" summary="dodane haslo do bazy w appsettings.json. dodane zliczanie kwoty subskrypcji przy jej złożeniu.">
+      <option name="closed" value="true" />
+      <created>1734994385866</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1734994385866</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +376,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="dbcontext" />
     <MESSAGE value="factory test for migration" />
@@ -311,6 +391,12 @@
     <MESSAGE value="dodany token logowania jwt, dwa nugety do tokenu jwt" />
     <MESSAGE value="przypomnienie o naprawie autoryzacji - zmiana z cookie na jwt. ?" />
     <MESSAGE value="dodany model zmiany hasla, w seedzie dodane wiecej pozycji, w tokenie json lekko pozmieniane w login controller. wiekszosc kontrolerow pozmieniana zeby uzywalo tokenu jwt. program.cs w takim samym celu zmienione. dodana zmiana konta w UserAccountController.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodany model zmiany hasla, w seedzie dodane wiecej pozycji, w tokenie json lekko pozmieniane w login controller. wiekszosc kontrolerow pozmieniana zeby uzywalo tokenu jwt. program.cs w takim samym celu zmienione. dodana zmiana konta w UserAccountController.cs" />
+    <MESSAGE value="zmiany w seedzie zwiazane z tabelami łączącymi. w subscriptioncontroller dodane uzycie tabeli posredniej, w swaggerze dodane dane uzytkownika zeby za kazdym razem nie wpisywac przy logowaniu. naprawiony cały subscription service" />
+    <MESSAGE value="dodany endpoint usuwania produktu subskrypcji" />
+    <MESSAGE value="dodany adres email do ChangePasswordViewModel.cs i do UserAccountController.cs" />
+    <MESSAGE value="dodany folder ze zdjeciami, ale raczej bedzie do usuniecia. do modelu products dodany imagepath a w zwiazku z tym zmiany w uzyciach oraz seedzie dla products. generacja tokenu jwt przeniesiona do osobnej klasy." />
+    <MESSAGE value="poprawione literowki OrderSubscriptionProduct do orderSubscriptionProduct. Poprawiony POST subskrypcji aby przyjmowal wiecej niz 1 produkt subskrypcji." />
+    <MESSAGE value="dodane haslo do bazy w appsettings.json. dodane zliczanie kwoty subskrypcji przy jej złożeniu." />
+    <option name="LAST_COMMIT_MESSAGE" value="dodane haslo do bazy w appsettings.json. dodane zliczanie kwoty subskrypcji przy jej złożeniu." />
   </component>
 </project>

@@ -19,6 +19,6 @@ public class Order
     [Required]
     public DateTime orderDate { get; set; }
     
-    //cos jest z kluczami nie tak... oraz nie dodają się pierwsze dwa ordery w bazie
+   
 
 }

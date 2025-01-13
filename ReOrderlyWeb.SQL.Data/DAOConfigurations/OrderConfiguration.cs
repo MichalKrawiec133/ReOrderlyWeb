@@ -15,11 +15,10 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasForeignKey(o => o.idUser)
             .IsRequired();
         builder.Property(o => o.idUser).IsRequired();
-        //builder.Property(o => o.idOrderStatus).IsRequired();
-        //builder.HasOne(o => o.OrderStatus); // czy to dobrze zadziala 
+        
         builder.HasOne(o => o.OrderStatus)
             .WithMany()
-            .HasForeignKey(o => o.idOrderStatus)  // Jeśli `Order` posiada `idOrderStatus` jako klucz obcy
+            .HasForeignKey(o => o.idOrderStatus)  
             .IsRequired();
         builder.Property(o => o.orderDate).IsRequired();
         builder.ToTable("Order");

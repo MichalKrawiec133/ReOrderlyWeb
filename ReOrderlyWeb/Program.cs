@@ -18,10 +18,7 @@ using ReOrderlyWeb.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
-// Add services to the container.
 
-
-//builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 var connectionString = builder.Configuration.GetConnectionString("ReOrderlyWebDbContext");
 builder.Services.AddDbContext<ReOrderlyWebDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
@@ -43,7 +40,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidIssuer = "API", 
         ValidAudience = "USER", 
         ClockSkew = TimeSpan.Zero,//TODO: usuwa domyslny czas waznosci tokenu - 5min
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KLUCZDOTESTOWTESTTESTTESTTESTTESTTEST")) // DO ZMIANY PRZY PUBLIKOWANIU
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KLUCZDOTESTOWTESTTESTTESTTESTTESTTEST")) 
     };
 });
     
@@ -53,7 +50,6 @@ builder.Services.AddCors();
 
 builder.Services.AddHostedService<SubscriptionOrderService>();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -93,12 +89,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
-
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-
 
 using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
@@ -108,9 +99,10 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
         databaseSeed.Seed();
-    
+        var script = context.Database.GenerateCreateScript();
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "Schema.sql");
+        
 }
-
 
 
 if (app.Environment.IsDevelopment())

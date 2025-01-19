@@ -22,66 +22,66 @@ namespace ReOrderlyWeb.Controllers
             
     // Wyświetlenie wszystkich subskrypcji
     [HttpGet("subscriptions")]
-public IActionResult GetCurrentSubscriptions()
-{
-    var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-
-    if (string.IsNullOrEmpty(email))
+    public IActionResult GetCurrentSubscriptions()
     {
-        return Unauthorized("No valid user session.");
-    }
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
-    var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
-
-    if (user == null)
-    {
-        return Unauthorized("User not found.");
-    }
-
-    var subscriptions = _context.OrderSubscription
-        .Where(o => o.idUser == user.userId)
-        .Select(o => new OrderSubscriptionViewModel
+        if (string.IsNullOrEmpty(email))
         {
-            orderSubscriptionId = o.orderSubscriptionId,
-            User = new UserViewModel
-            {
-                userId = o.User.userId,
-                name = o.User.name,
-                lastName = o.User.lastName,
-                streetName = o.User.streetName,
-                houseNumber = o.User.houseNumber,
-                voivodeship = o.User.voivodeship,
-                country = o.User.country,
-                zipcode = o.User.zipcode,
-                emailAddress = o.User.emailAddress,
-                phoneNumber = o.User.phoneNumber
-            },
+            return Unauthorized("No valid user session.");
+        }
 
-            orderSubscriptionProducts = o.orderSubscriptionProducts.Select(osp => new OrderSubscriptionProductViewModel
+        var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
+
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        var subscriptions = _context.OrderSubscription
+            .Where(o => o.idUser == user.userId)
+            .Select(o => new OrderSubscriptionViewModel
             {
-                orderSubscriptionProductId = osp.orderSubscriptionProductId,
-                Products = new ProductsViewModel
+                orderSubscriptionId = o.orderSubscriptionId,
+                User = new UserViewModel
                 {
-                    productId = osp.Product.productId,
-                    productName = osp.Product.productName,
-                    productPrice = osp.Product.productPrice,
-                    imagePath = osp.Product.imagePath
+                    userId = o.User.userId,
+                    name = o.User.name,
+                    lastName = o.User.lastName,
+                    streetName = o.User.streetName,
+                    houseNumber = o.User.houseNumber,
+                    voivodeship = o.User.voivodeship,
+                    country = o.User.country,
+                    zipcode = o.User.zipcode,
+                    emailAddress = o.User.emailAddress,
+                    phoneNumber = o.User.phoneNumber
                 },
-                productQuantity = osp.productQuantity
-            }).ToList(),
 
-            intervalDays = o.intervalDays,
-            orderDate = o.orderDate
-        })
-        .ToList();
+                orderSubscriptionProducts = o.orderSubscriptionProducts.Select(osp => new OrderSubscriptionProductViewModel
+                {
+                    orderSubscriptionProductId = osp.orderSubscriptionProductId,
+                    Products = new ProductsViewModel
+                    {
+                        productId = osp.Product.productId,
+                        productName = osp.Product.productName,
+                        productPrice = osp.Product.productPrice,
+                        imagePath = osp.Product.imagePath
+                    },
+                    productQuantity = osp.productQuantity
+                }).ToList(),
 
-    if (subscriptions == null || !subscriptions.Any())
-    {
-        return NotFound("No active subscriptions found for this user.");
+                intervalDays = o.intervalDays,
+                orderDate = o.orderDate
+            })
+            .ToList();
+
+        if (subscriptions == null || !subscriptions.Any())
+        {
+            return NotFound("No active subscriptions found for this user.");
+        }
+
+        return Ok(subscriptions);
     }
-
-    return Ok(subscriptions);
-}
 
         // dodanie subskrypcji
         [HttpPost("subscribe")]
@@ -98,7 +98,7 @@ public IActionResult GetCurrentSubscriptions()
 
             if (user == null)
             {
-                return Unauthorized("User not found.");
+                return NotFound("User not found.");
             }
 
             // Pobranie produktu z bazy danych
@@ -145,7 +145,7 @@ public IActionResult GetCurrentSubscriptions()
 
         if (user == null)
         {
-            return Unauthorized("User not found.");
+            return NotFound("User not found.");
         }
 
         var subscription = _context.OrderSubscription
@@ -215,7 +215,7 @@ public IActionResult GetCurrentSubscriptions()
 
             if (user == null)
             {
-                return Unauthorized("User not found.");
+                return NotFound("User not found.");
             }
 
             // Znajdź subskrypcję
@@ -262,7 +262,7 @@ public IActionResult GetCurrentSubscriptions()
 
             if (user == null)
             {
-                return Unauthorized("User not found.");
+                return NotFound("User not found.");
             }
     
             var subscription = _context.OrderSubscription

@@ -53,88 +53,18 @@ public class UserAccountController : ControllerBase
         return Ok(userData);
     }
     
-    //tworzenie konta.
-    [HttpPost("account")]
-    public async Task<IActionResult> CreateUser([FromBody] UserViewModel userCreate)
-    {
-        
-        var user = _context.User.SingleOrDefault(c => c.emailAddress == userCreate.emailAddress);
-        //bool added = true;
-        if (user != null)
-        {
-            return Conflict("User with this email already exists.");
-        }
-
-        var userAdd = new User();
-        if (!string.IsNullOrEmpty(userCreate.name))
-        {
-            userAdd.name = userCreate.name;
-        }
-
-        if (!string.IsNullOrEmpty(userCreate.lastName))
-        {
-            userAdd.lastName = userCreate.lastName;
-        }
-
-        if (!string.IsNullOrEmpty(userCreate.streetName))
-        {
-            userAdd.streetName = userCreate.streetName;
-        }
-
-        if (userCreate.houseNumber.HasValue)
-        {
-            userAdd.houseNumber = userCreate.houseNumber.Value;
-        }
-
-        if (!string.IsNullOrEmpty(userCreate.voivodeship))
-        {
-            userAdd.voivodeship = userCreate.voivodeship;
-        }
-
-        if (!string.IsNullOrEmpty(userCreate.country))
-        {
-            userAdd.country = userCreate.country;
-        }
-
-        if (userCreate.zipcode.HasValue)
-        {
-            userAdd.zipcode = userCreate.zipcode.Value;
-        }
-        if (!string.IsNullOrEmpty(userCreate.emailAddress))
-        {
-            userAdd.emailAddress = userCreate.emailAddress;
-        }
-
-        if (!string.IsNullOrEmpty(userCreate.password))
-        {
-            var md5Pass = md5Convert.md5gen(userCreate.password);
-            if (userAdd.password != md5Pass)
-            {
-                userAdd.password = md5Pass;
-            }
-        }
-
-        if (userCreate.phoneNumber != 0) 
-        {
-            userAdd.phoneNumber = userCreate.phoneNumber;
-        }
-
-       
-        _context.User.Update(userAdd);
-        await _context.SaveChangesAsync();
-
-
-        return Ok();
-        
-        
-    }
-    
     
     //edycja danych usera.
     [HttpPatch("account")]
     public async Task<IActionResult> EditUserData([FromBody] UserViewModel userUpdated)
     {
-       
+        var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+        if (string.IsNullOrEmpty(email))
+        {
+            return Unauthorized("No valid user session.");
+        }
+        
         var user = _context.User.SingleOrDefault(c => c.emailAddress == userUpdated.emailAddress);
         
         if (user == null)

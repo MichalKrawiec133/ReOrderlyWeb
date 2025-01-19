@@ -1,12 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using ReOrderlyWeb.Controllers;
 using ReOrderlyWeb.SQL.Data;
-using ReOrderlyWeb.SQL.Data.DAO;
 using ReOrderlyWeb.ViewModels;
 
 public class LoginController : ControllerBase

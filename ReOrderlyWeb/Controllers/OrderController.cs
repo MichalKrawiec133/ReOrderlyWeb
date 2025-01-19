@@ -34,7 +34,7 @@ public class OrderController : ControllerBase
         var user = _context.User.SingleOrDefault(c => c.emailAddress == email);
         if (user == null)
         {
-            return Unauthorized("User not found.");
+            return NotFound("User not found.");
         }
 
         var orders = _context.Order
